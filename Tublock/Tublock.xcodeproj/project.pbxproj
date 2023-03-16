@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515E9D29C35D370079D537 /* AppDelegate.swift */; };
+		8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515E9F29C35D370079D537 /* SceneDelegate.swift */; };
+		8F515EA229C35D370079D537 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EA129C35D370079D537 /* ViewController.swift */; };
+		8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EA629C35D370079D537 /* Tublock.xcdatamodeld */; };
+		8F515EAA29C35D390079D537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F515EA929C35D390079D537 /* Assets.xcassets */; };
+		8F515EAD29C35D390079D537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F515EAB29C35D390079D537 /* LaunchScreen.storyboard */; };
+		8F515EB829C35D390079D537 /* TublockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EB729C35D390079D537 /* TublockTests.swift */; };
+		8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC129C35D390079D537 /* TublockUITests.swift */; };
+		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F515EB429C35D390079D537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F515E9229C35D360079D537 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F515E9929C35D370079D537;
+			remoteInfo = Tublock;
+		};
+		8F515EBE29C35D390079D537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F515E9229C35D360079D537 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F515E9929C35D370079D537;
+			remoteInfo = Tublock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8F515E9A29C35D370079D537 /* Tublock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tublock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F515E9D29C35D370079D537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8F515E9F29C35D370079D537 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8F515EA129C35D370079D537 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F515EA729C35D370079D537 /* Tublock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tublock.xcdatamodel; sourceTree = "<group>"; };
+		8F515EA929C35D390079D537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F515EAC29C35D390079D537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F515EAE29C35D390079D537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F515EB329C35D390079D537 /* TublockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TublockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F515EB729C35D390079D537 /* TublockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockTests.swift; sourceTree = "<group>"; };
+		8F515EBD29C35D390079D537 /* TublockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TublockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
+		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F515E9729C35D370079D537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F515EB029C35D390079D537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F515EBA29C35D390079D537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F515E9129C35D360079D537 = {
+			isa = PBXGroup;
+			children = (
+				8F515E9C29C35D370079D537 /* Tublock */,
+				8F515EB629C35D390079D537 /* TublockTests */,
+				8F515EC029C35D390079D537 /* TublockUITests */,
+				8F515E9B29C35D370079D537 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8F515E9B29C35D370079D537 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F515E9A29C35D370079D537 /* Tublock.app */,
+				8F515EB329C35D390079D537 /* TublockTests.xctest */,
+				8F515EBD29C35D390079D537 /* TublockUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8F515E9C29C35D370079D537 /* Tublock */ = {
+			isa = PBXGroup;
+			children = (
+				8F515E9D29C35D370079D537 /* AppDelegate.swift */,
+				8F515E9F29C35D370079D537 /* SceneDelegate.swift */,
+				8F515EA129C35D370079D537 /* ViewController.swift */,
+				8F515EA929C35D390079D537 /* Assets.xcassets */,
+				8F515EAB29C35D390079D537 /* LaunchScreen.storyboard */,
+				8F515EAE29C35D390079D537 /* Info.plist */,
+				8F515EA629C35D370079D537 /* Tublock.xcdatamodeld */,
+			);
+			path = Tublock;
+			sourceTree = "<group>";
+		};
+		8F515EB629C35D390079D537 /* TublockTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EB729C35D390079D537 /* TublockTests.swift */,
+			);
+			path = TublockTests;
+			sourceTree = "<group>";
+		};
+		8F515EC029C35D390079D537 /* TublockUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EC129C35D390079D537 /* TublockUITests.swift */,
+				8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */,
+			);
+			path = TublockUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F515E9929C35D370079D537 /* Tublock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F515EC729C35D390079D537 /* Build configuration list for PBXNativeTarget "Tublock" */;
+			buildPhases = (
+				8F515E9629C35D370079D537 /* Sources */,
+				8F515E9729C35D370079D537 /* Frameworks */,
+				8F515E9829C35D370079D537 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tublock;
+			productName = Tublock;
+			productReference = 8F515E9A29C35D370079D537 /* Tublock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F515EB229C35D390079D537 /* TublockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F515ECA29C35D390079D537 /* Build configuration list for PBXNativeTarget "TublockTests" */;
+			buildPhases = (
+				8F515EAF29C35D390079D537 /* Sources */,
+				8F515EB029C35D390079D537 /* Frameworks */,
+				8F515EB129C35D390079D537 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F515EB529C35D390079D537 /* PBXTargetDependency */,
+			);
+			name = TublockTests;
+			productName = TublockTests;
+			productReference = 8F515EB329C35D390079D537 /* TublockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8F515EBC29C35D390079D537 /* TublockUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F515ECD29C35D390079D537 /* Build configuration list for PBXNativeTarget "TublockUITests" */;
+			buildPhases = (
+				8F515EB929C35D390079D537 /* Sources */,
+				8F515EBA29C35D390079D537 /* Frameworks */,
+				8F515EBB29C35D390079D537 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F515EBF29C35D390079D537 /* PBXTargetDependency */,
+			);
+			name = TublockUITests;
+			productName = TublockUITests;
+			productReference = 8F515EBD29C35D390079D537 /* TublockUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F515E9229C35D360079D537 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8F515E9929C35D370079D537 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					8F515EB229C35D390079D537 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8F515E9929C35D370079D537;
+					};
+					8F515EBC29C35D390079D537 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8F515E9929C35D370079D537;
+					};
+				};
+			};
+			buildConfigurationList = 8F515E9529C35D360079D537 /* Build configuration list for PBXProject "Tublock" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8F515E9129C35D360079D537;
+			productRefGroup = 8F515E9B29C35D370079D537 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F515E9929C35D370079D537 /* Tublock */,
+				8F515EB229C35D390079D537 /* TublockTests */,
+				8F515EBC29C35D390079D537 /* TublockUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F515E9829C35D370079D537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F515EAD29C35D390079D537 /* LaunchScreen.storyboard in Resources */,
+				8F515EAA29C35D390079D537 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F515EB129C35D390079D537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F515EBB29C35D390079D537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F515E9629C35D370079D537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
+				8F515EA229C35D370079D537 /* ViewController.swift in Sources */,
+				8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */,
+				8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F515EAF29C35D390079D537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F515EB829C35D390079D537 /* TublockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F515EB929C35D390079D537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */,
+				8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F515EB529C35D390079D537 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F515E9929C35D370079D537 /* Tublock */;
+			targetProxy = 8F515EB429C35D390079D537 /* PBXContainerItemProxy */;
+		};
+		8F515EBF29C35D390079D537 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F515E9929C35D370079D537 /* Tublock */;
+			targetProxy = 8F515EBE29C35D390079D537 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8F515EAB29C35D390079D537 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F515EAC29C35D390079D537 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8F515EC529C35D390079D537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8F515EC629C35D390079D537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F515EC829C35D390079D537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62SDS28JUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tublock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tublock;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.Tublock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8F515EC929C35D390079D537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62SDS28JUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tublock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tublock;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.Tublock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		8F515ECB29C35D390079D537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62SDS28JUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.TublockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tublock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tublock";
+			};
+			name = Debug;
+		};
+		8F515ECC29C35D390079D537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62SDS28JUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.TublockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tublock.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tublock";
+			};
+			name = Release;
+		};
+		8F515ECE29C35D390079D537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62SDS28JUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.TublockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tublock;
+			};
+			name = Debug;
+		};
+		8F515ECF29C35D390079D537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62SDS28JUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.TublockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Tublock;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F515E9529C35D360079D537 /* Build configuration list for PBXProject "Tublock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F515EC529C35D390079D537 /* Debug */,
+				8F515EC629C35D390079D537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F515EC729C35D390079D537 /* Build configuration list for PBXNativeTarget "Tublock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F515EC829C35D390079D537 /* Debug */,
+				8F515EC929C35D390079D537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F515ECA29C35D390079D537 /* Build configuration list for PBXNativeTarget "TublockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F515ECB29C35D390079D537 /* Debug */,
+				8F515ECC29C35D390079D537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F515ECD29C35D390079D537 /* Build configuration list for PBXNativeTarget "TublockUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F515ECE29C35D390079D537 /* Debug */,
+				8F515ECF29C35D390079D537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8F515EA629C35D370079D537 /* Tublock.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8F515EA729C35D370079D537 /* Tublock.xcdatamodel */,
+			);
+			currentVersion = 8F515EA729C35D370079D537 /* Tublock.xcdatamodel */;
+			path = Tublock.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8F515E9229C35D360079D537 /* Project object */;
+}
