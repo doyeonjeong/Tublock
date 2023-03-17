@@ -8,6 +8,20 @@
 import UIKit
 
 final class ViewController: UIViewController {
+    
+    // MARK: - Properties
+    lazy var checkButton: UIButton = {
+        let button = makeButton("Tap to check your message")
+        button.addTarget(self, action: #selector(pressedCheckButton), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var sampleButton: UIButton = {
+        let button = makeButton("Tap to check sample message")
+        button.addTarget(self, action: #selector(pressedSampleButton), for: .touchUpInside)
+        return button
+    }()
+
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -21,7 +35,8 @@ extension ViewController {
     // MARK: - Methods of set up view
     private func setup() {
         setBackground()
-        setCheckButton()
+        addViews()
+        setAutoLayout()
     }
     
     private func setBackground() {
@@ -37,26 +52,44 @@ extension ViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    private func setCheckButton() {
-        let checkButton = UIButton(type: .system)
-        checkButton.frame = .zero
-        checkButton.translatesAutoresizingMaskIntoConstraints = false
-        checkButton.setTitle("Tap to check your message", for: .normal)
-        checkButton.setTitleColor(.white, for: .normal)
-        checkButton.backgroundColor = .black
-        checkButton.layer.cornerRadius = 10
-        checkButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+    private func addViews() {
         view.addSubview(checkButton)
-        
+        view.addSubview(sampleButton)
+    }
+
+    private func setAutoLayout() {
         NSLayoutConstraint.activate([
             checkButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             checkButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             checkButton.widthAnchor.constraint(equalToConstant: 345),
-            checkButton.heightAnchor.constraint(equalToConstant: 42)
+            checkButton.heightAnchor.constraint(equalToConstant: 42),
+            
+            sampleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            sampleButton.bottomAnchor.constraint(equalTo: checkButton.topAnchor, constant: -20),
+            sampleButton.widthAnchor.constraint(equalToConstant: 345),
+            sampleButton.heightAnchor.constraint(equalToConstant: 42)
         ])
     }
     
-    @objc func buttonPressed(_ sender: UIButton) {
-        print("ButtonPressed")
+    // MARK: - Action Mehtods
+    @objc func pressedCheckButton(_ sender: UIButton) {
+        print("pressedCheckButton")
+    }
+    
+    @objc func pressedSampleButton(_ sender: UIButton) {
+        print("pressedSampleButton")
+    }
+    
+    // MARK: - Methods for Custom UI
+    private func makeButton(_ title: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.frame = .zero
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(pressedCheckButton), for: .touchUpInside)
+        return button
     }
 }
