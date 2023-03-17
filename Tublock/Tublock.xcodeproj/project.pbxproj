@@ -76,6 +76,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F03759729C4047A005C0883 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8F515E9D29C35D370079D537 /* AppDelegate.swift */,
+				8F515E9F29C35D370079D537 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8F03759829C4048A005C0883 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F03759B29C404AB005C0883 /* Supporting Files */,
+				8F03759A29C4049A005C0883 /* LaunchScreen */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8F03759929C40492005C0883 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8F0375A029C4055B005C0883 /* ViewModels */,
+				8F03759F29C4054E005C0883 /* Controllers */,
+				8F03759E29C40544005C0883 /* Models */,
+				8F03759C29C4052F005C0883 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8F03759A29C4049A005C0883 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EAB29C35D390079D537 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		8F03759B29C404AB005C0883 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EA929C35D390079D537 /* Assets.xcassets */,
+				8F515EAE29C35D390079D537 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F03759C29C4052F005C0883 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F03759E29C40544005C0883 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F03759F29C4054E005C0883 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EA129C35D370079D537 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F0375A029C4055B005C0883 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		8F515E9129C35D360079D537 = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +174,9 @@
 		8F515E9C29C35D370079D537 /* Tublock */ = {
 			isa = PBXGroup;
 			children = (
-				8F515E9D29C35D370079D537 /* AppDelegate.swift */,
-				8F515E9F29C35D370079D537 /* SceneDelegate.swift */,
-				8F515EA129C35D370079D537 /* ViewController.swift */,
-				8F515EA929C35D390079D537 /* Assets.xcassets */,
-				8F515EAB29C35D390079D537 /* LaunchScreen.storyboard */,
-				8F515EAE29C35D390079D537 /* Info.plist */,
+				8F03759929C40492005C0883 /* Sources */,
+				8F03759829C4048A005C0883 /* Resources */,
+				8F03759729C4047A005C0883 /* Application */,
 				8F515EA629C35D370079D537 /* Tublock.xcdatamodeld */,
 			);
 			path = Tublock;
@@ -431,7 +503,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62SDS28JUT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Tublock/Info.plist;
+				INFOPLIST_FILE = "Tublock/Resources/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Tublock;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -464,7 +536,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62SDS28JUT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Tublock/Info.plist;
+				INFOPLIST_FILE = "Tublock/Resources/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Tublock;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
