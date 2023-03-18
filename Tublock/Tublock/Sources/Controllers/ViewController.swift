@@ -9,6 +9,22 @@ import UIKit
 
 final class ViewController: UIViewController {
     
+    let onboardingMessages: [String] = [ // how to use? 버튼을 만들어서 모달로 보여주기
+        "Hi there, 👋🏻",
+        """
+        We'll send you a reminder every 5 minutes
+        whenever you turn on YouTube and keep it on.
+        """,
+        """
+        Write a message you want to say
+        to yourself at that time.
+        """,
+        """
+        We hope this app can help you improve
+        your dopamine addiction.
+        """
+    ]
+    
     // MARK: - Properties
     lazy var checkButton: UIButton = {
         let button = makeButton("Tap to check your message")
@@ -21,8 +37,7 @@ final class ViewController: UIViewController {
         button.addTarget(self, action: #selector(pressedSampleButton), for: .touchUpInside)
         return button
     }()
-
-
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +82,7 @@ extension ViewController {
             sampleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleButton.bottomAnchor.constraint(equalTo: checkButton.topAnchor, constant: -20),
             sampleButton.widthAnchor.constraint(equalToConstant: 345),
-            sampleButton.heightAnchor.constraint(equalToConstant: 42)
+            sampleButton.heightAnchor.constraint(equalToConstant: 42),
         ])
     }
     
