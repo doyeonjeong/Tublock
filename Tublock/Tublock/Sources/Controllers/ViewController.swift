@@ -164,9 +164,12 @@ extension ViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(title, for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(pressedCheckButton), for: .touchUpInside)
+        button.backgroundColor = UIColor(patternImage: UIImage(named: "ButtonBackgroundImage")!)
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 12
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowPath = nil
         return button
     }
 }
