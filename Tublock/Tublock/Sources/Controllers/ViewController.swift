@@ -26,6 +26,8 @@ final class ViewController: UIViewController {
     ]
     
     // MARK: - Properties
+    private var accumulatedTime: Int = 5
+    
     lazy var checkButton: UIButton = {
         let button = makeButton("Tap to check your message")
         button.addTarget(self, action: #selector(pressedCheckButton), for: .touchUpInside)
@@ -36,6 +38,59 @@ final class ViewController: UIViewController {
         let button = makeButton("Tap to check sample message")
         button.addTarget(self, action: #selector(pressedSampleButton), for: .touchUpInside)
         return button
+    }()
+
+    lazy var staticMessage: UILabel = {
+        let label = UILabel()
+        label.text = "You've been watching for \(accumulatedTime) minutes."
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var messageTextField: UITextField = {
+        let textField = UITextField()
+        textField.text = "Enter your message here"
+        textField.textColor = UIColor(red: 0.76, green: 0.44, blue: 0.47, alpha: 1.00)
+        textField.textAlignment = .center
+        textField.font = .systemFont(ofSize: 18)
+        return textField
+    }()
+    
+    lazy var bannerForPreview: UIView = {
+        let banner = UIView()
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        banner.backgroundColor = UIColor(red: 0.22, green: 0.22, blue: 0.22, alpha: 0.68)
+        banner.layer.cornerRadius = 20
+        
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 4
+        
+        stackView.addArrangedSubview(staticMessage)
+        stackView.addArrangedSubview(messageTextField)
+        
+        banner.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: banner.leadingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: banner.trailingAnchor, constant: -8),
+            stackView.topAnchor.constraint(equalTo: banner.topAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: banner.bottomAnchor, constant: -8),
+            
+            staticMessage.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 8),
+            staticMessage.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
+            staticMessage.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 8),
+            staticMessage.heightAnchor.constraint(equalToConstant: 24),
+            
+            messageTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 8),
+            messageTextField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -8),
+            messageTextField.topAnchor.constraint(equalTo: staticMessage.bottomAnchor, constant: 8),
+        ])
+        
+        return banner
     }()
     
     // MARK: - Life Cycle
@@ -70,10 +125,17 @@ extension ViewController {
     private func addViews() {
         view.addSubview(checkButton)
         view.addSubview(sampleButton)
+        view.addSubview(bannerForPreview)
     }
 
     private func setAutoLayout() {
         NSLayoutConstraint.activate([
+            bannerForPreview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bannerForPreview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            bannerForPreview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            bannerForPreview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            bannerForPreview.heightAnchor.constraint(equalToConstant: 94),
+            
             checkButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             checkButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             checkButton.widthAnchor.constraint(equalToConstant: 345),
