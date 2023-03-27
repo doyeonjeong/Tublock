@@ -9,7 +9,7 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    let onboardingMessages: [String] = [ // how to use? 버튼을 만들어서 모달로 보여주기
+    let onboardingMessages: [String] = [ // onboardingButton -> Modal에서 보여줄 메세지
         "Hi there, 👋🏻",
         """
         We'll send you a reminder every 5 minutes
@@ -27,6 +27,17 @@ final class ViewController: UIViewController {
     
     // MARK: - Properties
     private var accumulatedTime: Int = 5
+    
+    lazy var onboardingButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(systemName: "info")
+        config.baseBackgroundColor = .clear
+        
+        let button = UIButton(configuration: config)
+        button.addTarget(self, action: #selector(pressedOnboardingButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     lazy var checkButton: UIButton = {
         let button = makeButton("Tap to check your message")
@@ -123,6 +134,7 @@ extension ViewController {
     }
     
     private func addViews() {
+        view.addSubview(onboardingButton)
         view.addSubview(checkButton)
         view.addSubview(sampleButton)
         view.addSubview(bannerForPreview)
@@ -145,10 +157,19 @@ extension ViewController {
             sampleButton.bottomAnchor.constraint(equalTo: checkButton.topAnchor, constant: -20),
             sampleButton.widthAnchor.constraint(equalToConstant: 345),
             sampleButton.heightAnchor.constraint(equalToConstant: 42),
+            
+            onboardingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18),
+            onboardingButton.bottomAnchor.constraint(equalTo: sampleButton.topAnchor, constant: -16),
+            onboardingButton.widthAnchor.constraint(equalToConstant: 50),
+            onboardingButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
     // MARK: - Action Mehtods
+    @objc func pressedOnboardingButton(_ sender: UIButton) {
+        print("pressedOnboardingButton")
+    }
+    
     @objc func pressedCheckButton(_ sender: UIButton) {
         print("pressedCheckButton")
     }
