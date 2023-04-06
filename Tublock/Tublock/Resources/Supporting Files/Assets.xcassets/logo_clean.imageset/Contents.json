@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "ButtonBackgroundImage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "logo_clean.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
