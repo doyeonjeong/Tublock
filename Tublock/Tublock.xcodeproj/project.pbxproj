@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F4CD51329DEE0C900A1DE4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4CD51229DEE0C900A1DE4A /* SnapKit */; };
 		8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515E9D29C35D370079D537 /* AppDelegate.swift */; };
 		8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515E9F29C35D370079D537 /* SceneDelegate.swift */; };
 		8F515EA229C35D370079D537 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EA129C35D370079D537 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4CD51329DEE0C900A1DE4A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +217,9 @@
 			dependencies = (
 			);
 			name = Tublock;
+			packageProductDependencies = (
+				8F4CD51229DEE0C900A1DE4A /* SnapKit */,
+			);
 			productName = Tublock;
 			productReference = 8F515E9A29C35D370079D537 /* Tublock.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +292,9 @@
 				Base,
 			);
 			mainGroup = 8F515E9129C35D360079D537;
+			packageReferences = (
+				8F4CD51129DEE0C900A1DE4A /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 8F515E9B29C35D370079D537 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -678,6 +686,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F4CD51129DEE0C900A1DE4A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F4CD51229DEE0C900A1DE4A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F4CD51129DEE0C900A1DE4A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8F515EA629C35D370079D537 /* Tublock.xcdatamodeld */ = {
