@@ -18,19 +18,18 @@ final class ViewController: UIViewController {
     
     private let headerView: UIView = {
         let view = UIView()
-        //        view.backgroundColor = .yellow // 범위 확인용
         return view
     }()
     
-    private let setMaximumView: UIView = {
-        let view = UIView()
-        //        view.backgroundColor = .cyan // 범위 확인용
+    private let setMaximumView: SetMaximumView = {
+        let view = SetMaximumView()
+        //view.backgroundColor = .cyan // 범위 확인용
         return view
     }()
     
     private let setMessageView: UIView = {
         let view = UIView()
-        //        view.backgroundColor = .blue // 범위 확인용
+        //view.backgroundColor = .blue // 범위 확인용
         return view
     }()
     
@@ -78,13 +77,13 @@ extension ViewController {
             make.top.equalTo(headerView.snp.bottom)
             make.centerX.equalTo(view.snp.centerX)
             make.width.equalToSuperview()
-            make.height.equalTo(170)
+            make.height.equalTo(171.4)
         }
         
         setMessageView.snp.makeConstraints { make in
             make.top.equalTo(setMaximumView.snp.bottom)
             make.centerX.equalTo(view.snp.centerX)
-            make.height.equalTo(250)
+            make.height.equalTo(271)
             make.width.equalToSuperview()
         }
     }
