@@ -18,6 +18,8 @@
 		8F515EB829C35D390079D537 /* TublockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EB729C35D390079D537 /* TublockTests.swift */; };
 		8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC129C35D390079D537 /* TublockUITests.swift */; };
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
+		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
+		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		8F515EBD29C35D390079D537 /* TublockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TublockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,10 @@
 		8F03759929C40492005C0883 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8F230E6E29DFE6CF00CA3FCB /* Views */,
 				8F03759F29C4054E005C0883 /* Controllers */,
+				8F03759E29C40544005C0883 /* Models */,
+				8F03759C29C4052F005C0883 /* Views */,
+				EF50F83329DF39E300F8072B /* Ex_String.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -120,6 +126,7 @@
 			children = (
 				8F515EA929C35D390079D537 /* Assets.xcassets */,
 				8F515EAE29C35D390079D537 /* Info.plist */,
+				EF50F83129DF39CA00F8072B /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -132,7 +139,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		8F230E6E29DFE6CF00CA3FCB /* Views */ = {
+		8F03759C29C4052F005C0883 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */,
@@ -299,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F515EAD29C35D390079D537 /* LaunchScreen.storyboard in Resources */,
+				EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */,
 				8F515EAA29C35D390079D537 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */,
 				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
 				8F515EA229C35D370079D537 /* ViewController.swift in Sources */,
 				8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */,
