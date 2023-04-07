@@ -101,8 +101,7 @@
 		8F03759929C40492005C0883 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8F230E6E29DFE6CF00CA3FCB /* Views */,
-				8F03759F29C4054E005C0883 /* Controllers */,
+				8FFB91DD29E0266400823E37 /* MainScene */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -122,22 +121,6 @@
 				8F515EAE29C35D390079D537 /* Info.plist */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8F03759F29C4054E005C0883 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8F515EA129C35D370079D537 /* ViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8F230E6E29DFE6CF00CA3FCB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		8F515E9129C35D360079D537 = {
@@ -186,6 +169,55 @@
 				8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */,
 			);
 			path = TublockUITests;
+			sourceTree = "<group>";
+		};
+		8FFB91DD29E0266400823E37 /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EA129C35D370079D537 /* ViewController.swift */,
+				8FFB91DE29E02C6100823E37 /* Components */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		8FFB91DE29E02C6100823E37 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB91E029E02C7200823E37 /* SetMessage */,
+				8FFB91DF29E02C6900823E37 /* SetMaximum */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8FFB91DF29E02C6900823E37 /* SetMaximum */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB91E229E02C8600823E37 /* View */,
+			);
+			path = SetMaximum;
+			sourceTree = "<group>";
+		};
+		8FFB91E029E02C7200823E37 /* SetMessage */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB91E129E02C7F00823E37 /* View */,
+			);
+			path = SetMessage;
+			sourceTree = "<group>";
+		};
+		8FFB91E129E02C7F00823E37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8FFB91E229E02C8600823E37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
