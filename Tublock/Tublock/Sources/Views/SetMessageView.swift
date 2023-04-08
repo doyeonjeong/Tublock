@@ -56,22 +56,23 @@ class SetMessageView: UIView {
     private let _tublockLogoImageView: UIImageView = {
         let imageView = UIImageView()
         
+        imageView.layer.cornerRadius = 8
+        imageView.clipsToBounds = true
         imageView.image = UIImage(named: "logo_clean")
         imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
     
-    private let _messageTextfield: UILabel = {
-        let label = UILabel()
+    private let _messageTextView: UITextView = {
+        let textView = UITextView()
         
-        label.text = "Set Message"
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = UIColor(displayP3Red: 217/255,
-                                  green: 217/255,
-                                  blue: 217/255,
-                                  alpha: 1.0)
-        return label
+        textView.text = "Leave a message for your self here ..."
+        textView.font = UIFont.systemFont(ofSize: 14)
+        textView.textColor = .white
+        textView.backgroundColor = .clear
+        
+        return textView
     }()
     
     private let _previewButton: UIButton = {
@@ -109,7 +110,7 @@ extension SetMessageView {
         _contentsView.addSubview(_messageView)
         _messageView.addSubview(_tublockLabel)
         _messageView.addSubview(_tublockLogoImageView)
-        _messageView.addSubview(_messageTextfield)
+        _messageView.addSubview(_messageTextView)
         _contentsView.addSubview(_previewButton)
     }
     
@@ -141,7 +142,7 @@ extension SetMessageView {
             make.size.equalTo(36)
         }
         
-        _messageTextfield.snp.makeConstraints { make in
+        _messageTextView.snp.makeConstraints { make in
             make.top.equalTo(_tublockLabel.snp.bottom).inset(4)
             make.left.right.equalTo(_tublockLabel)
             make.bottom.equalToSuperview().inset(10)

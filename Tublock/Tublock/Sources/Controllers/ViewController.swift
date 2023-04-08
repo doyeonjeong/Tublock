@@ -28,9 +28,13 @@ final class ViewController: UIViewController {
         return view
     }()
     
-    private let setMessageView: UIView = {
-        let view = UIView()
-//        view.backgroundColor = .blue // 범위 확인용
+    private let setMessageView: SetMessageView = {
+        let view = SetMessageView()
+        view.backgroundColor = .blue // 범위 확인용
+        view.backgroundColor = UIColor(displayP3Red: 30/255,
+                                       green: 30/255,
+                                       blue: 30/255,
+                                       alpha: 1.0)
         return view
     }()
     
