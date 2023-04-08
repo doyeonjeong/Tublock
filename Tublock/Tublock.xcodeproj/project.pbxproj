@@ -18,6 +18,8 @@
 		8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC129C35D390079D537 /* TublockUITests.swift */; };
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
 		EF7D567029DF181D0094DA50 /* SetMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D566F29DF181D0094DA50 /* SetMessageView.swift */; };
+		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
+		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF7D566F29DF181D0094DA50 /* SetMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMessageView.swift; sourceTree = "<group>"; };
+		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				8F03759F29C4054E005C0883 /* Controllers */,
 				8F03759E29C40544005C0883 /* Models */,
 				8F03759C29C4052F005C0883 /* Views */,
+				EF50F83329DF39E300F8072B /* Ex_String.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			children = (
 				8F515EA929C35D390079D537 /* Assets.xcassets */,
 				8F515EAE29C35D390079D537 /* Info.plist */,
+				EF50F83129DF39CA00F8072B /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F515EAD29C35D390079D537 /* LaunchScreen.storyboard in Resources */,
+				EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */,
 				8F515EAA29C35D390079D537 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */,
 				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
 				EF7D567029DF181D0094DA50 /* SetMessageView.swift in Sources */,
 				8F515EA229C35D370079D537 /* ViewController.swift in Sources */,
