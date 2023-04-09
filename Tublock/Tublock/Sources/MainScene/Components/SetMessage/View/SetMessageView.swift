@@ -8,17 +8,26 @@
 import UIKit
 import SnapKit
 
-class SetMessageView: UIView {
+protocol MessageTextViewAction: AnyObject {
+    func didEndEditing(text: String)
+    func limitCount()
+}
 
+protocol SetMessageViewAvailable: UIView {
+    var delegate: MessageTextViewAction? { get }
+}
+
+final class SetMessageView: UIView, SetMessageViewAvailable {
+
+    private let _placholderString: String = "Leave a message for your self here ..."
+    
     private let _contentsView: UIView = {
         let view = UIView()
         
-        view.backgroundColor = UIColor(displayP3Red: 30/255,
-                                       green: 30/255,
-                                       blue: 30/255,
-                                       alpha: 1.0)
         return view
     }()
+    
+    public weak var delegate: MessageTextViewAction?
     
     private let _setMesaageLabel: UILabel = {
         let label = UILabel()
@@ -64,12 +73,13 @@ class SetMessageView: UIView {
         return imageView
     }()
     
-    private let _messageTextView: UITextView = {
+    private lazy var _messageTextView: UITextView = {
         let textView = UITextView()
         
-        textView.text = "Leave a message for your self here ..."
+        textView.delegate = self
+        textView.text = _placholderString
         textView.font = UIFont.systemFont(ofSize: 14)
-        textView.textColor = .white
+        textView.textColor = .gray
         textView.backgroundColor = .clear
         
         return textView
@@ -102,6 +112,7 @@ extension SetMessageView {
     private func _initLayout() {
         _addSubViews()
         _setConstraints()
+        _addToolBarWith(textView: _messageTextView)
     }
     
     private func _addSubViews() {
@@ -153,5 +164,92 @@ extension SetMessageView {
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(36)
         }
+    }
+}
+
+// MARK: UITextViewDelegate Method
+extension SetMessageView: UITextViewDelegate {
+    
+    private func _addToolBarWith(textView: UITextView) {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .black
+        
+        let doneButton = UIBarButtonItem(
+            title: "확인",
+            style: UIBarButtonItem.Style.done,
+            target: self,
+            action: #selector(self.donePressed)
+        )
+        let cancelButton = UIBarButtonItem(
+            title: "취소",
+            style: UIBarButtonItem.Style.plain,
+            target: self,
+            action: #selector(self.cancelPressed)
+        )
+        let spaceButton = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        toolBar.setItems(
+            [cancelButton, spaceButton, doneButton],
+            animated: false
+        )
+        
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        textView.inputAccessoryView = toolBar
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView.text == _placholderString {
+            textView.text = ""
+            textView.textColor = .white
+        }
+        
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+       
+        let limit = 50
+        
+        guard let str = textView.text,
+              str.count < limit
+        else {
+            // 입력시 1 지울시 0
+            if text.count == 0 {
+                return true
+            } else {
+                delegate?.limitCount()
+                return false
+                
+            }
+        }
+
+        let newLength = str.count + text.count - range.length
+        
+        return newLength <= limit
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.count == 0 && textView.text != _placholderString {
+            textView.text = _placholderString
+            textView.textColor = .gray
+        } else {
+            delegate?.didEndEditing(text: textView.text)
+        }
+    }
+    
+    @objc
+    func donePressed(){
+        self.endEditing(true)
+    }
+    @objc
+    func cancelPressed(){
+        self.endEditing(true)
     }
 }

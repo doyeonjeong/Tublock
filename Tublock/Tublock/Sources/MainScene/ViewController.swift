@@ -27,10 +27,10 @@ final class ViewController: UIViewController {
         return view
     }()
     
-    private let _setMessageView: UIView = {
-        let view = UIView()
-        //view.backgroundColor = .blue // 범위 확인용
-        return view
+    private lazy var _setMessageView: SetMessageViewAvailable = {
+        let messageView: SetMessageViewAvailable = SetMessageView()
+        
+        return messageView
     }()
     
     override func viewDidLoad() {
