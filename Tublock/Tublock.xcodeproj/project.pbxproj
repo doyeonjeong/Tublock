@@ -18,9 +18,9 @@
 		8F515EB829C35D390079D537 /* TublockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EB729C35D390079D537 /* TublockTests.swift */; };
 		8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC129C35D390079D537 /* TublockUITests.swift */; };
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
-		EF7D567029DF181D0094DA50 /* SetMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7D566F29DF181D0094DA50 /* SetMessageView.swift */; };
 		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
 		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
+		EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCB304729E2A033001FC492 /* SetMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,9 +55,9 @@
 		8F515EBD29C35D390079D537 /* TublockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TublockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EF7D566F29DF181D0094DA50 /* SetMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMessageView.swift; sourceTree = "<group>"; };
 		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
+		EFCB304729E2A033001FC492 /* SetMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +216,7 @@
 		8FFB91E129E02C7F00823E37 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EFCB304729E2A033001FC492 /* SetMessageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,7 +368,7 @@
 			files = (
 				EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */,
 				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
-				EF7D567029DF181D0094DA50 /* SetMessageView.swift in Sources */,
+				EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */,
 				8F515EA229C35D370079D537 /* ViewController.swift in Sources */,
 				8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */,
 				8F230E7029DFE6DD00CA3FCB /* SetMaximumView.swift in Sources */,
