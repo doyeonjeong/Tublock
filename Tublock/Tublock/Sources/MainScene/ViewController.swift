@@ -10,24 +10,24 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    private let settingIcon: UIImageView = {
+    private let _settingIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "setting_icon")
         return imageView
     }()
     
-    private let headerView: UIView = {
+    private let _headerView: UIView = {
         let view = UIView()
         return view
     }()
     
-    private let setMaximumView: SetMaximumView = {
+    private let _setMaximumView: SetMaximumView = {
         let view = SetMaximumView()
         //view.backgroundColor = .cyan // 범위 확인용
         return view
     }()
     
-    private let setMessageView: UIView = {
+    private let _setMessageView: UIView = {
         let view = UIView()
         //view.backgroundColor = .blue // 범위 확인용
         return view
@@ -35,53 +35,49 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        _setup()
     }
 }
 
 extension ViewController {
-    private func setup() {
-        setDelegates()
-        addSubviews()
-        setConstraints()
+    private func _setup() {
+        _setDelegates()
+        _addSubviews()
+        _setConstraints()
     }
     
-    private func setDelegates() {
+    private func _setDelegates() {
         
     }
     
-    private func addSubviews() {
-        view.addSubview(headerView)
-        headerView.addSubview(settingIcon)
-        view.addSubview(setMaximumView)
-        view.addSubview(setMessageView)
+    private func _addSubviews() {
+        view.addSubview(_headerView)
+        _headerView.addSubview(_settingIcon)
+        view.addSubview(_setMaximumView)
+        view.addSubview(_setMessageView)
     }
     
-    private func setConstraints() {
-        headerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.centerX.equalTo(view.snp.centerX)
-            make.width.equalToSuperview()
+    private func _setConstraints() {
+        _headerView.snp.makeConstraints { make in
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(64)
         }
         
-        settingIcon.snp.makeConstraints { make in
-            make.width.equalTo(24)
-            make.height.equalTo(24)
-            make.top.equalTo(headerView.snp.top).offset(20)
-            make.bottom.equalTo(headerView.snp.bottom).offset(-20)
-            make.trailing.equalTo(headerView.snp.trailing).offset(-26)
+        _settingIcon.snp.makeConstraints { make in
+            make.width.height.equalTo(24)
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(_headerView).offset(-26)
         }
         
-        setMaximumView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom)
-            make.centerX.equalTo(view.snp.centerX)
+        _setMaximumView.snp.makeConstraints { make in
+            make.top.equalTo(_headerView.snp.bottom)
+            make.left.right.equalTo(_headerView)
             make.width.equalToSuperview()
             make.height.equalTo(171.4)
         }
         
-        setMessageView.snp.makeConstraints { make in
-            make.top.equalTo(setMaximumView.snp.bottom)
+        _setMessageView.snp.makeConstraints { make in
+            make.top.equalTo(_setMaximumView.snp.bottom)
             make.centerX.equalTo(view.snp.centerX)
             make.height.equalTo(271)
             make.width.equalToSuperview()

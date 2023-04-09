@@ -13,12 +13,12 @@ class SetMaximumView: UIView {
     var hours: Int = 0
     var minutes: Int = 0
     
-    private let contentsView: UIView = {
+    private let _contentsView: UIView = {
         let view = UIView()
         return view
     }()
     
-    private let titleLabel: UILabel = {
+    private let _titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Set Maximum"
         label.font = .boldSystemFont(ofSize: 18)
@@ -27,7 +27,7 @@ class SetMaximumView: UIView {
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
+    private let _descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
         label.text = "We recommend\nless than 3 hours."
@@ -37,14 +37,14 @@ class SetMaximumView: UIView {
         return label
     }()
     
-    private let timeSettingView: UIView = {
+    private let _timeSettingView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 14
         view.backgroundColor = .white
         return view
     }()
     
-    private lazy var timeLabel: UILabel = {
+    private lazy var _timeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         return label
@@ -52,62 +52,66 @@ class SetMaximumView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        _setupView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupView()
+        _setupView()
     }
     
-    private func setupView() {
-        addSubview(contentsView)
-        contentsView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentsView.widthAnchor.constraint(equalToConstant: 344),
-            contentsView.heightAnchor.constraint(equalToConstant: 87.4),
-            contentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            contentsView.topAnchor.constraint(equalTo: self.topAnchor, constant: 42),
-            contentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -42)
-        ])
+    private func _setupView() {
+        addSubview(_contentsView)
         
-        let verticalStackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
+        _contentsView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(42)
+            make.left.right.equalToSuperview().inset(25)
+        }
+        
+        let verticalStackView = UIStackView(arrangedSubviews: [_titleLabel, _descriptionLabel])
         verticalStackView.axis = .vertical
         verticalStackView.spacing = 8
         
-        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, timeSettingView])
+        /// top.left.equalToSuperview()를 해보았지만 height가 계속 ambiguous하다는 오류 메세지로 인한 설정
+        _titleLabel.snp.makeConstraints { make in
+            make.height.equalTo(22)
+        }
+        
+        /// bottom.left.equalToSuperview()를 해보았지만 height가 계속 ambiguous하다는 오류 메세지로 인한 설정
+        _descriptionLabel.snp.makeConstraints { make in
+            make.height.equalTo(34)
+        }
+        
+        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingView])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 10
         
-        contentsView.addSubview(horizontalStackView)
-        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            horizontalStackView.leadingAnchor.constraint(equalTo: contentsView.leadingAnchor, constant: 0),
-            horizontalStackView.topAnchor.constraint(equalTo: contentsView.topAnchor, constant: 10),
-            horizontalStackView.trailingAnchor.constraint(equalTo: contentsView.trailingAnchor, constant: 0),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentsView.bottomAnchor, constant: -8),
-        ])
+        _contentsView.addSubview(horizontalStackView)
         
-        NSLayoutConstraint.activate([
-            timeSettingView.widthAnchor.constraint(equalToConstant: 168),
-            timeSettingView.heightAnchor.constraint(equalToConstant: 67.4)
-        ])
+        horizontalStackView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(10)
+        }
         
-        timeSettingView.addSubview(timeLabel)
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            timeLabel.centerXAnchor.constraint(equalTo: timeSettingView.centerXAnchor),
-            timeLabel.centerYAnchor.constraint(equalTo: timeSettingView.centerYAnchor)
-        ])
+        /// 하드코딩한 것 같아서 썩 마음에 들지 않지만 현재로서는 마땅한 대안이 떠오르지 않음
+        _timeSettingView.snp.makeConstraints { make in
+            make.width.equalTo(168)
+            make.height.equalTo(67.4)
+        }
+
+        _timeSettingView.addSubview(_timeLabel)
+        _timeLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
         
-        configureTimeLabel()
+        _configureTimeLabel()
     }
     
-    private func configureTimeLabel() {
-        updateAttributedText()
+    private func _configureTimeLabel() {
+        _updateAttributedText()
     }
     
-    private func updateAttributedText() {
+    private func _updateAttributedText() {
         let hoursText = NSAttributedString(string: "\(hours)",
                                            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
         let minutesText = NSAttributedString(string: "\(minutes)",
@@ -123,7 +127,7 @@ class SetMaximumView: UIView {
         attributedText.append(minutesText)
         attributedText.append(minutesLabel)
         
-        timeLabel.attributedText = attributedText
+        _timeLabel.attributedText = attributedText
     }
 
 }
