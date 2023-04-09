@@ -29,6 +29,9 @@ final class ViewController: UIViewController {
     
     private lazy var _setMessageView: SetMessageViewAvailable = {
         let messageView: SetMessageViewAvailable = SetMessageView()
+        messageView.previewAction = { [weak self] preview in
+            self?.view.addSubview(preview)
+        }
         
         return messageView
     }()

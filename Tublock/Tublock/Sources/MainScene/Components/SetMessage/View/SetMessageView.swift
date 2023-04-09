@@ -14,6 +14,7 @@ protocol MessageTextViewAction: AnyObject {
 }
 
 protocol SetMessageViewAvailable: UIView {
+    var previewAction: ((UIView)->())? { get set }
     var delegate: MessageTextViewAction? { get }
 }
 
@@ -27,6 +28,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
         return view
     }()
     
+    public var previewAction: ((UIView)->())?
     public weak var delegate: MessageTextViewAction?
     
     private let _setMesaageLabel: UILabel = {
@@ -85,7 +87,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
         return textView
     }()
     
-    private let _previewButton: UIButton = {
+    private lazy var _previewButton: UIButton = {
         let button = UIButton()
         
         button.layer.cornerRadius = 8
@@ -95,6 +97,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
                                          green: 104/255,
                                          blue: 104/255,
                                          alpha: 0.2)
+        button.addTarget(self, action: #selector(previewBanner), for: .touchUpInside)
         return button
     }()
 
@@ -105,6 +108,12 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    private func previewBanner() {
+        let preview: UIView = _messageView
+        previewAction?(preview)
     }
 }
 
