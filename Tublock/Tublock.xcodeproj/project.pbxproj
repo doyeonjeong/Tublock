@@ -20,6 +20,7 @@
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
 		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
 		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
+		EF790E6529E465F500F435BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF790E6429E465F500F435BD /* ViewModel.swift */; };
 		EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCB304729E2A033001FC492 /* SetMessageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
+		EF790E6429E465F500F435BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EFCB304729E2A033001FC492 /* SetMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				8F515EA129C35D370079D537 /* ViewController.swift */,
+				EF790E6429E465F500F435BD /* ViewModel.swift */,
 				8FFB91DE29E02C6100823E37 /* Components */,
 			);
 			path = MainScene;
@@ -372,6 +375,7 @@
 				8F515EA229C35D370079D537 /* ViewController.swift in Sources */,
 				8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */,
 				8F230E7029DFE6DD00CA3FCB /* SetMaximumView.swift in Sources */,
+				EF790E6529E465F500F435BD /* ViewModel.swift in Sources */,
 				8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
