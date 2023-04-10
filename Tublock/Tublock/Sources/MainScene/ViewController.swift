@@ -30,7 +30,21 @@ final class ViewController: UIViewController {
     private lazy var _setMessageView: SetMessageViewAvailable = {
         let messageView: SetMessageViewAvailable = SetMessageView()
         messageView.previewAction = { [weak self] preview in
-            self?.view.addSubview(preview)
+            guard let self = self else { return }
+            let x = (self.view.frame.width - preview.frame.width) / 2
+            preview.frame.origin = CGPoint(x: x, y: -preview.frame.height)
+            
+            
+            UIView.animate(withDuration: 0.3,
+                           delay: 0.0,
+                           options: []) {
+                preview.frame.origin.y = 20.0
+                self.view.addSubview(preview)
+            } completion: { _ in
+                //
+            }
+
+            
         }
         
         return messageView

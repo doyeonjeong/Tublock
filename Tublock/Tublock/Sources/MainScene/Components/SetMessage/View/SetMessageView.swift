@@ -112,7 +112,9 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
     
     @objc
     private func previewBanner() {
-        let preview: UIView = _messageView
+        
+        let preview: BannerView = BannerView(frame: _messageView.frame)
+        preview.setLabel(message: _messageTextView.text)
         previewAction?(preview)
     }
 }
