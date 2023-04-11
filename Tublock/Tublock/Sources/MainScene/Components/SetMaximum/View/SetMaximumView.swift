@@ -10,6 +10,8 @@ import SnapKit
 
 class SetMaximumView: UIView {
     
+    var viewModel: SetMaximumViewModel = DefaultSetMaximumViewModel()
+    
     var hours: Int = 0
     var minutes: Int = 0
     
@@ -37,11 +39,12 @@ class SetMaximumView: UIView {
         return label
     }()
     
-    private let _timeSettingView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 14
-        view.backgroundColor = .white
-        return view
+    private lazy var _timeSettingButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 14
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
+        return button
     }()
     
     private lazy var _timeLabel: UILabel = {
@@ -82,7 +85,7 @@ class SetMaximumView: UIView {
             make.height.equalTo(34)
         }
         
-        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingView])
+        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingButton])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 10
         
@@ -94,12 +97,12 @@ class SetMaximumView: UIView {
         }
         
         /// 하드코딩한 것 같아서 썩 마음에 들지 않지만 현재로서는 마땅한 대안이 떠오르지 않음
-        _timeSettingView.snp.makeConstraints { make in
+        _timeSettingButton.snp.makeConstraints { make in
             make.width.equalTo(168)
             make.height.equalTo(67.4)
         }
-
-        _timeSettingView.addSubview(_timeLabel)
+        
+        _timeSettingButton.addSubview(_timeLabel)
         _timeLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
@@ -129,5 +132,56 @@ class SetMaximumView: UIView {
         
         _timeLabel.attributedText = attributedText
     }
+    
+    func update(selectedTime: BlockTime) {
+        hours = selectedTime.hours
+        minutes = selectedTime.minutes
+        _updateAttributedText()
+    }
 
+}
+
+extension SetMaximumView: TimePickerModalViewDelegate {
+    
+    func timePickerModalView(_ view: TimePickerModalView, didPickTime time: (hours: Int, minutes: Int)) {
+        update(selectedTime: time)
+    }
+    
+    @objc
+    private func _showTimePickerModalView() {
+        let timePicker = TimePickerModalView()
+        timePicker.modalPresentationStyle = .overCurrentContext
+        timePicker.delegate = self
+        
+        viewModel.update(selectedTime: (hours: hours, minutes: minutes))
+        
+        guard let viewController = _findViewController() else { return }
+        viewController.present(timePicker, animated: true, completion: nil)
+    }
+    
+    private func _findViewController() -> UIViewController? {
+        guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
+              let rootViewController = keyWindow.rootViewController else { return nil }
+        
+        var viewController: UIViewController? = nil
+        
+        if rootViewController is UINavigationController {
+            viewController = (rootViewController as? UINavigationController)?.visibleViewController
+        } else if rootViewController is UITabBarController {
+            let selectedTabViewController = (rootViewController as? UITabBarController)?.selectedViewController
+            if selectedTabViewController != nil {
+                viewController = selectedTabViewController
+            } else {
+                viewController = rootViewController
+            }
+        } else {
+            viewController = rootViewController
+        }
+        
+        while viewController?.presentedViewController != nil {
+            viewController = viewController?.presentedViewController
+        }
+        
+        return viewController
+    }
 }
