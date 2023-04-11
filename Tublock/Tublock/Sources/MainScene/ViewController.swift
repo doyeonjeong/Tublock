@@ -28,11 +28,14 @@ final class ViewController: UIViewController {
     }()
     
     private var topConstraint: NSLayoutConstraint!
-    
+    private var isPreviewing: Bool = false
     private lazy var _setMessageView: SetMessageViewAvailable = {
         let messageView: SetMessageViewAvailable = SetMessageView()
         messageView.previewAction = { [weak self] preview in
-            guard let self = self else { return }
+            guard let self = self,
+                  self.isPreviewing == false
+            else { return }
+            self.isPreviewing = true
             self._setUp(preview: preview)
             self._startAnimation(preview)
         }
@@ -134,6 +137,7 @@ extension ViewController {
             self.view.layoutIfNeeded()
         } completion: { _ in
             preview.removeFromSuperview()
+            self.isPreviewing = false
         }
     }
 }
