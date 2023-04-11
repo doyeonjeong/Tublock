@@ -147,14 +147,16 @@ extension SetMaximumView: TimePickerModalViewDelegate {
         update(selectedTime: time)
     }
     
-    @objc
-    private func _showTimePickerModalView() {
+    /// TimePickerModalView를 Present
+    @objc private func _showTimePickerModalView() {
         let timePicker = TimePickerModalView()
         timePicker.modalPresentationStyle = .overCurrentContext
         timePicker.delegate = self
         
+        /// viewModel을 현재 시간으로 업데이트
         viewModel.update(selectedTime: (hours: hours, minutes: minutes))
         
+        /// TimePicker를 표시할 뷰 컨트롤러 찾기
         guard let viewController = _findViewController() else { return }
         viewController.present(timePicker, animated: true, completion: nil)
     }
