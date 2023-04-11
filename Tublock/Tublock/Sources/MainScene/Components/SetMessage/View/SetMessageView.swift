@@ -14,7 +14,7 @@ protocol MessageTextViewAction: AnyObject {
 }
 
 protocol SetMessageViewAvailable: UIView {
-    var previewAction: ((UIView)->())? { get set }
+    var previewAction: ((BannerView)->())? { get set }
     var delegate: MessageTextViewAction? { get }
 }
 
@@ -28,7 +28,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
         return view
     }()
     
-    public var previewAction: ((UIView)->())?
+    public var previewAction: ((BannerView)->())?
     public weak var delegate: MessageTextViewAction?
     
     private let _setMesaageLabel: UILabel = {
