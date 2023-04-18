@@ -27,10 +27,20 @@ final class ViewController: UIViewController {
         return view
     }()
     
-    private let _setMessageView: UIView = {
-        let view = UIView()
-        //view.backgroundColor = .blue // 범위 확인용
-        return view
+    private var topConstraint: NSLayoutConstraint!
+    private var isPreviewing: Bool = false
+    private lazy var _setMessageView: SetMessageViewAvailable = {
+        let messageView: SetMessageViewAvailable = SetMessageView()
+        messageView.previewAction = { [weak self] preview in
+            guard let self = self,
+                  self.isPreviewing == false
+            else { return }
+            self.isPreviewing = true
+            self._setUp(preview: preview)
+            self._startAnimation(preview)
+        }
+        
+        return messageView
     }()
     
     override func viewDidLoad() {
@@ -81,6 +91,53 @@ extension ViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.height.equalTo(271)
             make.width.equalToSuperview()
+        }
+    }
+}
+
+// MARK: SetMessageView Metod
+extension ViewController {
+    
+    
+    private func _setUp(preview: BannerView) {
+        preview.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(preview)
+        
+        topConstraint = preview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -(preview.frame.height + preview.frame.origin.y + 100))
+
+        NSLayoutConstraint.activate([
+            topConstraint,
+            preview.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            preview.widthAnchor.constraint(equalToConstant: preview.bounds.width),
+            preview.heightAnchor.constraint(equalToConstant: preview.bounds.height),
+        ])
+        view.layoutIfNeeded()
+    }
+    
+    private func _startAnimation(_ preview: BannerView) {
+        
+        self.topConstraint.constant = 0
+        UIView.animate(withDuration: 1.0,
+                       delay: 0.0,
+                       options: [.curveEaseInOut]) {
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                self._endAnimation(preview)
+            })
+        }
+    }
+    
+    private func _endAnimation(_ preview: BannerView) {
+        
+        topConstraint.constant = -(preview.frame.height + preview.frame.origin.y + 100)
+        UIView.animate(withDuration: 1.0,
+                       delay: 0.0,
+                       options: [.curveEaseInOut]) {
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            preview.removeFromSuperview()
+            self.isPreviewing = false
         }
     }
 }

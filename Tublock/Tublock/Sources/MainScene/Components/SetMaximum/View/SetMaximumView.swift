@@ -10,8 +10,7 @@ import SnapKit
 
 class SetMaximumView: UIView {
     
-    var hours: Int = 0
-    var minutes: Int = 0
+    var viewModel = SetMaximumViewModel()
     
     private let _contentsView: UIView = {
         let view = UIView()
@@ -37,17 +36,28 @@ class SetMaximumView: UIView {
         return label
     }()
     
-    private let _timeSettingView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 14
-        view.backgroundColor = .white
-        return view
+    private lazy var _timeSettingButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 14
+        button.backgroundColor = .white
+        button.setAttributedTitle(viewModel.getFormattedTime(), for: .normal)
+        button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
+        return button
     }()
     
-    private lazy var _timeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
+    private let _verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    private let _horizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        return stackView
     }()
 
     override init(frame: CGRect) {
@@ -59,75 +69,78 @@ class SetMaximumView: UIView {
         super.init(coder: coder)
         _setupView()
     }
-    
+}
+
+// MARK: - Setup
+extension SetMaximumView {
     private func _setupView() {
+        _addSubviews()
+        _setConstraints()
+    }
+    
+    private func _addSubviews() {
         addSubview(_contentsView)
-        
+        _verticalStackView.addArrangedSubview(_titleLabel)
+        _verticalStackView.addArrangedSubview(_descriptionLabel)
+        _horizontalStackView.addArrangedSubview(_verticalStackView)
+        _horizontalStackView.addArrangedSubview(_timeSettingButton)
+        _contentsView.addSubview(_horizontalStackView)
+    }
+    
+    private func _setConstraints() {
         _contentsView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(42)
             make.left.right.equalToSuperview().inset(25)
         }
         
-        let verticalStackView = UIStackView(arrangedSubviews: [_titleLabel, _descriptionLabel])
-        verticalStackView.axis = .vertical
-        verticalStackView.spacing = 8
-        
-        /// top.left.equalToSuperview()를 해보았지만 height가 계속 ambiguous하다는 오류 메세지로 인한 설정
         _titleLabel.snp.makeConstraints { make in
             make.height.equalTo(22)
         }
         
-        /// bottom.left.equalToSuperview()를 해보았지만 height가 계속 ambiguous하다는 오류 메세지로 인한 설정
-        _descriptionLabel.snp.makeConstraints { make in
-            make.height.equalTo(34)
-        }
-        
-        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingView])
-        horizontalStackView.axis = .horizontal
-        horizontalStackView.spacing = 10
-        
-        _contentsView.addSubview(horizontalStackView)
-        
-        horizontalStackView.snp.makeConstraints { make in
+        _horizontalStackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(10)
         }
-        
-        /// 하드코딩한 것 같아서 썩 마음에 들지 않지만 현재로서는 마땅한 대안이 떠오르지 않음
-        _timeSettingView.snp.makeConstraints { make in
-            make.width.equalTo(168)
-            make.height.equalTo(67.4)
-        }
+    }
+}
 
-        _timeSettingView.addSubview(_timeLabel)
-        _timeLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
+// MARK: - TimePickerView
+extension SetMaximumView {
+    
+    /// TimePickerModalView를 Present
+    @objc private func _showTimePickerModalView() {
+        let timePicker = TimePickerModalViewController()
+        timePicker.modalPresentationStyle = .overCurrentContext
         
-        _configureTimeLabel()
+        /// TimePicker를 표시할 뷰 컨트롤러 찾기
+        guard let viewController = _findViewController() else { return }
+        viewController.present(timePicker, animated: true, completion: nil)
     }
     
-    private func _configureTimeLabel() {
-        _updateAttributedText()
-    }
-    
-    private func _updateAttributedText() {
-        let hoursText = NSAttributedString(string: "\(hours)",
-                                           attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
-        let minutesText = NSAttributedString(string: "\(minutes)",
-                                             attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
-        let hoursLabel = NSAttributedString(string: " hours ",
-                                            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
-        let minutesLabel = NSAttributedString(string: " min",
-                                              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
+    private func _findViewController() -> UIViewController? {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = windowScene.delegate as? SceneDelegate else { return nil }
+        guard let rootViewController = delegate.window?.rootViewController else { return nil }
         
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(hoursText)
-        attributedText.append(hoursLabel)
-        attributedText.append(minutesText)
-        attributedText.append(minutesLabel)
+        var viewController: UIViewController? = nil
         
-        _timeLabel.attributedText = attributedText
+        if rootViewController is UINavigationController {
+            viewController = (rootViewController as? UINavigationController)?.visibleViewController
+        } else if rootViewController is UITabBarController {
+            let selectedTabViewController = (rootViewController as? UITabBarController)?.selectedViewController
+            if selectedTabViewController != nil {
+                viewController = selectedTabViewController
+            } else {
+                viewController = rootViewController
+            }
+        } else {
+            viewController = rootViewController
+        }
+        
+        while viewController?.presentedViewController != nil {
+            viewController = viewController?.presentedViewController
+        }
+        
+        return viewController
     }
-
 }
