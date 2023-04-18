@@ -12,9 +12,6 @@ class SetMaximumView: UIView {
     
     var viewModel: SetMaximumViewModel = DefaultSetMaximumViewModel()
     
-    var hours: Int = 0
-    var minutes: Int = 0
-    
     private let _contentsView: UIView = {
         let view = UIView()
         return view
@@ -115,9 +112,9 @@ class SetMaximumView: UIView {
     }
     
     private func _updateAttributedText() {
-        let hoursText = NSAttributedString(string: "\(hours)",
+        let hoursText = NSAttributedString(string: "\(viewModel.selectedTime.hours)",
                                            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
-        let minutesText = NSAttributedString(string: "\(minutes)",
+        let minutesText = NSAttributedString(string: "\(viewModel.selectedTime.minutes)",
                                              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
         let hoursLabel = NSAttributedString(string: " hours ",
                                             attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
@@ -134,14 +131,12 @@ class SetMaximumView: UIView {
     }
     
     func update(selectedTime: BlockTime) {
-        hours = selectedTime.hours
-        minutes = selectedTime.minutes
         _updateAttributedText()
     }
 
 }
 
-extension SetMaximumView: TimePickerModalViewDelegate {
+extension SetMaximumView {
     
     func timePickerModalView(_ view: TimePickerModalView, didPickTime time: (hours: Int, minutes: Int)) {
         update(selectedTime: time)
@@ -151,10 +146,6 @@ extension SetMaximumView: TimePickerModalViewDelegate {
     @objc private func _showTimePickerModalView() {
         let timePicker = TimePickerModalView()
         timePicker.modalPresentationStyle = .overCurrentContext
-        timePicker.delegate = self
-        
-        /// viewModel을 현재 시간으로 업데이트
-        viewModel.update(selectedTime: (hours: hours, minutes: minutes))
         
         /// TimePicker를 표시할 뷰 컨트롤러 찾기
         guard let viewController = _findViewController() else { return }

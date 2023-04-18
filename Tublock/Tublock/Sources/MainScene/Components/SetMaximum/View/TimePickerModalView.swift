@@ -8,13 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol TimePickerModalViewDelegate: AnyObject {
-    /// 사용자가 시간을 선택했음을 델리게이트에 알립니다.
-    func timePickerModalView(_ view: TimePickerModalView, didPickTime time: (hours: Int, minutes: Int))
-}
-
 final class TimePickerModalView: UIViewController {
-    weak var delegate: TimePickerModalViewDelegate?
     
     private let _helloLabel: UILabel = {
         let label = UILabel()
