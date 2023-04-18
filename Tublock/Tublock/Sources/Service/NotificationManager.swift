@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-class NotificationManager {
+final class NotificationManager {
     
     static let shared: NotificationManager = NotificationManager()
     
@@ -22,5 +22,17 @@ class NotificationManager {
         let granted = try await center.requestAuthorization(options: [.alert, .badge, .sound, .provisional])
         
         return granted
+    }
+    
+    func isAuthorization() async -> Bool {
+        let setting = await center.notificationSettings()
+        
+        switch setting.authorizationStatus {
+            
+        case .notDetermined, .denied: return false
+        case .authorized, .provisional: return true
+        case .ephemeral: return true
+        @unknown default: return false
+        }
     }
 }
