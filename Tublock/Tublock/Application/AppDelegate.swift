@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Task {
            try await notificationManager.requestAuthorization()
         }
-        notificationManager.getAuthorizationStatus()
         
         return true
     }
