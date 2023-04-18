@@ -153,8 +153,9 @@ extension SetMaximumView {
     }
     
     private func _findViewController() -> UIViewController? {
-        guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
-              let rootViewController = keyWindow.rootViewController else { return nil }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = windowScene.delegate as? SceneDelegate else { return nil }
+        guard let rootViewController = delegate.window?.rootViewController else { return nil }
         
         var viewController: UIViewController? = nil
         
