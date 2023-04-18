@@ -85,18 +85,13 @@ class SetMaximumView: UIView {
         let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingButton])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = 10
+        horizontalStackView.distribution = .fillEqually
         
         _contentsView.addSubview(horizontalStackView)
         
         horizontalStackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(10)
-        }
-        
-        /// 하드코딩한 것 같아서 썩 마음에 들지 않지만 현재로서는 마땅한 대안이 떠오르지 않음
-        _timeSettingButton.snp.makeConstraints { make in
-            make.width.equalTo(168)
-            make.height.equalTo(67.4)
         }
         
         _timeSettingButton.addSubview(_timeLabel)
