@@ -60,28 +60,41 @@ class SetMaximumView: UIView {
         super.init(coder: coder)
         _setupView()
     }
-    
+}
+
+// MARK: - Setup
+extension SetMaximumView {
     private func _setupView() {
         addSubview(_contentsView)
-        
+        _setupContentsView()
+        _setupTitleLabel()
+        _setupDescriptionLabel()
+        _setupHorizontalStackView()
+    }
+    
+    private func _setupContentsView() {
         _contentsView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(42)
             make.left.right.equalToSuperview().inset(25)
         }
-        
-        let verticalStackView = UIStackView(arrangedSubviews: [_titleLabel, _descriptionLabel])
-        verticalStackView.axis = .vertical
-        verticalStackView.spacing = 8
-        
-        /// top.left.equalToSuperview()를 해보았지만 height가 계속 ambiguous하다는 오류 메세지로 인한 설정
+    }
+    
+    private func _setupTitleLabel() {
         _titleLabel.snp.makeConstraints { make in
             make.height.equalTo(22)
         }
-        
-        /// bottom.left.equalToSuperview()를 해보았지만 height가 계속 ambiguous하다는 오류 메세지로 인한 설정
+    }
+    
+    private func _setupDescriptionLabel() {
         _descriptionLabel.snp.makeConstraints { make in
             make.height.equalTo(34)
         }
+    }
+    
+    private func _setupHorizontalStackView() {
+        let verticalStackView = UIStackView(arrangedSubviews: [_titleLabel, _descriptionLabel])
+        verticalStackView.axis = .vertical
+        verticalStackView.spacing = 8
         
         let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingButton])
         horizontalStackView.axis = .horizontal
@@ -97,6 +110,7 @@ class SetMaximumView: UIView {
     }
 }
 
+// MARK: - TimePickerView
 extension SetMaximumView {
     
     /// TimePickerModalView를 Present
