@@ -44,6 +44,21 @@ class SetMaximumView: UIView {
         button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
         return button
     }()
+    
+    private let _verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    private let _horizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,45 +74,30 @@ class SetMaximumView: UIView {
 // MARK: - Setup
 extension SetMaximumView {
     private func _setupView() {
-        addSubview(_contentsView)
-        _setupContentsView()
-        _setupTitleLabel()
-        _setupDescriptionLabel()
-        _setupHorizontalStackView()
+        _addSubviews()
+        _setConstraints()
     }
     
-    private func _setupContentsView() {
+    private func _addSubviews() {
+        addSubview(_contentsView)
+        _verticalStackView.addArrangedSubview(_titleLabel)
+        _verticalStackView.addArrangedSubview(_descriptionLabel)
+        _horizontalStackView.addArrangedSubview(_verticalStackView)
+        _horizontalStackView.addArrangedSubview(_timeSettingButton)
+        _contentsView.addSubview(_horizontalStackView)
+    }
+    
+    private func _setConstraints() {
         _contentsView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(42)
             make.left.right.equalToSuperview().inset(25)
         }
-    }
-    
-    private func _setupTitleLabel() {
+        
         _titleLabel.snp.makeConstraints { make in
             make.height.equalTo(22)
         }
-    }
-    
-    private func _setupDescriptionLabel() {
-        _descriptionLabel.snp.makeConstraints { make in
-            make.height.equalTo(34)
-        }
-    }
-    
-    private func _setupHorizontalStackView() {
-        let verticalStackView = UIStackView(arrangedSubviews: [_titleLabel, _descriptionLabel])
-        verticalStackView.axis = .vertical
-        verticalStackView.spacing = 8
         
-        let horizontalStackView = UIStackView(arrangedSubviews: [verticalStackView, _timeSettingButton])
-        horizontalStackView.axis = .horizontal
-        horizontalStackView.spacing = 10
-        horizontalStackView.distribution = .fillEqually
-        
-        _contentsView.addSubview(horizontalStackView)
-        
-        horizontalStackView.snp.makeConstraints { make in
+        _horizontalStackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(10)
         }
