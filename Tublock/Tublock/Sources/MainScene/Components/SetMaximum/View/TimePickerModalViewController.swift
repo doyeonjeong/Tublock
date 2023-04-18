@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TimePickerModalView: UIViewController {
+final class TimePickerModalViewController: UIViewController {
     
     private let _helloLabel: UILabel = {
         let label = UILabel()

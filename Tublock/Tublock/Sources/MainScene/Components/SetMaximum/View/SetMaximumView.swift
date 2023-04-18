@@ -138,13 +138,13 @@ class SetMaximumView: UIView {
 
 extension SetMaximumView {
     
-    func timePickerModalView(_ view: TimePickerModalView, didPickTime time: (hours: Int, minutes: Int)) {
+    func timePickerModalView(_ view: TimePickerModalViewController, didPickTime time: (hours: Int, minutes: Int)) {
         update(selectedTime: time)
     }
     
     /// TimePickerModalView를 Present
     @objc private func _showTimePickerModalView() {
-        let timePicker = TimePickerModalView()
+        let timePicker = TimePickerModalViewController()
         timePicker.modalPresentationStyle = .overCurrentContext
         
         /// TimePicker를 표시할 뷰 컨트롤러 찾기
