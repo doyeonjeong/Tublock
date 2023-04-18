@@ -23,8 +23,10 @@
 		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
 		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
 		EF790E6529E465F500F435BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF790E6429E465F500F435BD /* ViewModel.swift */; };
-		EF9D9CDF29E45A2C00D22F8F /* BlockingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */; };
 		EF790E6729E467EB00F435BD /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF790E6629E467EB00F435BD /* BannerView.swift */; };
+		EF9D9CDF29E45A2C00D22F8F /* BlockingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */; };
+		EFC1377A29EEE87500689E9D /* CommonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1377929EEE87500689E9D /* CommonType.swift */; };
+		EFC1377C29EEE88800689E9D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1377B29EEE88800689E9D /* UserDefaultsManager.swift */; };
 		EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCB304729E2A033001FC492 /* SetMessageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +67,10 @@
 		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
 		EF790E6429E465F500F435BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingManager.swift; sourceTree = "<group>"; };
 		EF790E6629E467EB00F435BD /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingManager.swift; sourceTree = "<group>"; };
+		EFC1377929EEE87500689E9D /* CommonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonType.swift; sourceTree = "<group>"; };
+		EFC1377B29EEE88800689E9D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		EFCB304729E2A033001FC492 /* SetMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 		8F03759929C40492005C0883 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EFC1377929EEE87500689E9D /* CommonType.swift */,
 				EF9D9CDD29E459FA00D22F8F /* Service */,
 				8FFB91DD29E0266400823E37 /* MainScene */,
 				EF50F83329DF39E300F8072B /* Ex_String.swift */,
@@ -256,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */,
+				EFC1377B29EEE88800689E9D /* UserDefaultsManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -407,8 +413,10 @@
 				EF790E6729E467EB00F435BD /* BannerView.swift in Sources */,
 				8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */,
 				8F230E7029DFE6DD00CA3FCB /* SetMaximumView.swift in Sources */,
+				EFC1377C29EEE88800689E9D /* UserDefaultsManager.swift in Sources */,
 				EF790E6529E465F500F435BD /* ViewModel.swift in Sources */,
 				8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */,
+				EFC1377A29EEE87500689E9D /* CommonType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
