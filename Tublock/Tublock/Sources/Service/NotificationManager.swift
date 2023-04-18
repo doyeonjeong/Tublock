@@ -35,4 +35,26 @@ final class NotificationManager {
         @unknown default: return false
         }
     }
+    
+    // 스케줄링에 대한 로직인 스크린 API가 개발이 된 이후에 리팩토링 해야해요
+    func addScehdule(identifier: String, body: String) {
+        let content = UNMutableNotificationContent()
+        content.title = "Tublock"
+        content.body = body
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        center.add(request)
+    }
+    
+    func getPendingSchedule() async -> [UNNotificationRequest] {
+        let requests = await center.pendingNotificationRequests()
+        
+        return requests
+    }
+    
+    func removePendingSchedule() {
+        center.removeAllPendingNotificationRequests()
+    }
 }
