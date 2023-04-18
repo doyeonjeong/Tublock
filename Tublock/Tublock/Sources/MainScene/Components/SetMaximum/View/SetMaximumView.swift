@@ -10,7 +10,7 @@ import SnapKit
 
 class SetMaximumView: UIView {
     
-    var viewModel: SetMaximumViewModel = DefaultSetMaximumViewModel()
+    var viewModel = SetMaximumViewModel()
     
     private let _contentsView: UIView = {
         let view = UIView()
@@ -43,12 +43,6 @@ class SetMaximumView: UIView {
         button.setAttributedTitle(viewModel.getFormattedTime(), for: .normal)
         button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
         return button
-    }()
-    
-    private lazy var _timeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
     }()
 
     override init(frame: CGRect) {
