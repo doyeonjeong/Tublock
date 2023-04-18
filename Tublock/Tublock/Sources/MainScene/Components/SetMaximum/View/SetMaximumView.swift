@@ -40,6 +40,7 @@ class SetMaximumView: UIView {
         let button = UIButton()
         button.layer.cornerRadius = 14
         button.backgroundColor = .white
+        button.setAttributedTitle(viewModel.getFormattedTime(), for: .normal)
         button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
         return button
     }()
@@ -93,49 +94,10 @@ class SetMaximumView: UIView {
             make.left.right.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(10)
         }
-        
-        _timeSettingButton.addSubview(_timeLabel)
-        _timeLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        
-        _configureTimeLabel()
     }
-    
-    private func _configureTimeLabel() {
-        _updateAttributedText()
-    }
-    
-    private func _updateAttributedText() {
-        let hoursText = NSAttributedString(string: "\(viewModel.selectedTime.hours)",
-                                           attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
-        let minutesText = NSAttributedString(string: "\(viewModel.selectedTime.minutes)",
-                                             attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23)])
-        let hoursLabel = NSAttributedString(string: " hours ",
-                                            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
-        let minutesLabel = NSAttributedString(string: " min",
-                                              attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
-        
-        let attributedText = NSMutableAttributedString()
-        attributedText.append(hoursText)
-        attributedText.append(hoursLabel)
-        attributedText.append(minutesText)
-        attributedText.append(minutesLabel)
-        
-        _timeLabel.attributedText = attributedText
-    }
-    
-    func update(selectedTime: BlockTime) {
-        _updateAttributedText()
-    }
-
 }
 
 extension SetMaximumView {
-    
-    func timePickerModalView(_ view: TimePickerModalViewController, didPickTime time: (hours: Int, minutes: Int)) {
-        update(selectedTime: time)
-    }
     
     /// TimePickerModalView를 Present
     @objc private func _showTimePickerModalView() {

@@ -58,7 +58,34 @@ class DefaultSetMaximumViewModel: SetMaximumViewModel {
     }
     
     func getFormattedTime() -> NSAttributedString {
-        return NSAttributedString.init(string: "dummy")
+        
+        let hoursText = NSAttributedString(
+            string: "\(selectedTime.hours)",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+        )
+        
+        let minutesText = NSAttributedString(
+            string: "\(selectedTime.minutes)",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+        )
+        
+        let hoursLabel = NSAttributedString(
+            string: " hours ",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        )
+        
+        let minLabel = NSAttributedString(
+            string: " min",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        )
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(hoursText)
+        attributedText.append(hoursLabel)
+        attributedText.append(minutesText)
+        attributedText.append(minLabel)
+        
+        return attributedText
     }
     
     func startTimer() {
