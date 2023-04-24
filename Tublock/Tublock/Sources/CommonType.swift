@@ -8,6 +8,6 @@
 import Foundation
 
 final class CommonType {
-    static let MAXIMUM_TIME = "maximumTime"
-    static let NOTIFICATION_MESSEAGE = "notification contents"
+    static let MAXIMUM_TIME = "maximum Time"
+    static let NOTIFICATION_CONTENTS = "notification Contents"
 }
