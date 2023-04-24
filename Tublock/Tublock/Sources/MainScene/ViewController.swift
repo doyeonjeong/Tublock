@@ -10,9 +10,9 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    private let _settingIcon: UIImageView = {
+    private let _settingIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "setting_icon")
+        imageView.image = UIImage(named: "Setting_icon")
         return imageView
     }()
     
@@ -29,6 +29,7 @@ final class ViewController: UIViewController {
     
     private var topConstraint: NSLayoutConstraint!
     private var isPreviewing: Bool = false
+    
     private lazy var _setMessageView: SetMessageViewAvailable = {
         let messageView: SetMessageViewAvailable = SetMessageView()
         messageView.previewAction = { [weak self] preview in
@@ -62,18 +63,19 @@ extension ViewController {
     
     private func _addSubviews() {
         view.addSubview(_headerView)
-        _headerView.addSubview(_settingIcon)
+        _headerView.addSubview(_settingIconImageView)
         view.addSubview(_setMaximumView)
         view.addSubview(_setMessageView)
     }
     
     private func _setConstraints() {
+        
         _headerView.snp.makeConstraints { make in
             make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(64)
         }
         
-        _settingIcon.snp.makeConstraints { make in
+        _settingIconImageView.snp.makeConstraints { make in
             make.width.height.equalTo(24)
             make.centerY.equalToSuperview()
             make.trailing.equalTo(_headerView).offset(-26)
@@ -97,13 +99,15 @@ extension ViewController {
 
 // MARK: SetMessageView Metod
 extension ViewController {
-    
-    
     private func _setUp(preview: BannerView) {
+        
         preview.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(preview)
         
-        topConstraint = preview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -(preview.frame.height + preview.frame.origin.y + 100))
+        topConstraint = preview.topAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.topAnchor,
+            constant: -(preview.frame.height + preview.frame.origin.y + 100)
+        )
 
         NSLayoutConstraint.activate([
             topConstraint,
@@ -117,9 +121,7 @@ extension ViewController {
     private func _startAnimation(_ preview: BannerView) {
         
         self.topConstraint.constant = 0
-        UIView.animate(withDuration: 1.0,
-                       delay: 0.0,
-                       options: [.curveEaseInOut]) {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut]) {
             self.view.layoutIfNeeded()
         } completion: { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
@@ -131,9 +133,7 @@ extension ViewController {
     private func _endAnimation(_ preview: BannerView) {
         
         topConstraint.constant = -(preview.frame.height + preview.frame.origin.y + 100)
-        UIView.animate(withDuration: 1.0,
-                       delay: 0.0,
-                       options: [.curveEaseInOut]) {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut]) {
             self.view.layoutIfNeeded()
         } completion: { _ in
             preview.removeFromSuperview()
