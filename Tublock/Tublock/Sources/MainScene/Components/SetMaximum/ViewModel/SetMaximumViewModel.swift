@@ -42,12 +42,12 @@ extension SetMaximumViewModel {
         )
         
         let hoursLabel = NSAttributedString(
-            string: " hours ",
+            string: " hours ".localized,
             attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
         )
         
         let minLabel = NSAttributedString(
-            string: " min",
+            string: " min".localized,
             attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
         )
         

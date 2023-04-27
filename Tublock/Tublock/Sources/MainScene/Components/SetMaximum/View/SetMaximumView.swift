@@ -19,7 +19,7 @@ class SetMaximumView: UIView {
     
     private let _titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Set Maximum"
+        label.text = "Set Maximum".localized
         label.font = .boldSystemFont(ofSize: 18)
         label.textColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
         label.sizeToFit()
@@ -29,7 +29,7 @@ class SetMaximumView: UIView {
     private let _descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.text = "We recommend\nless than 3 hours."
+        label.text = "We recommend\nless than 3 hours.".localized
         label.font = .systemFont(ofSize: 14)
         label.textColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
         label.sizeToFit()

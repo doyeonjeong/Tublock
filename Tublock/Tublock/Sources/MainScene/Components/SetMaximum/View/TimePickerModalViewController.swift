@@ -39,14 +39,14 @@ final class TimePickerModalViewController: UIViewController {
     
     private let _hoursLabel: UILabel = {
         let label = UILabel()
-        label.text = "hours"
+        label.text = "hours".localized
         label.textColor = .white
         return label
     }()
     
     private let _minutesLabel: UILabel = {
         let label = UILabel()
-        label.text = "min"
+        label.text = "min".localized
         label.textColor = .white
         return label
     }()
@@ -59,7 +59,7 @@ final class TimePickerModalViewController: UIViewController {
     
     private let _discriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Set a maximum daily watch time for YouTube"
+        label.text = "Set a maximum daily watch time for YouTube".localized
         label.textColor = .white
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -69,7 +69,7 @@ final class TimePickerModalViewController: UIViewController {
     
     private let _cautionLabel: UILabel = {
         let label = UILabel()
-        label.text = "If you confirm, you won't be able to change it until the next day\nCheck if you agree"
+        label.text = "If you confirm, you won't be able to change it until the next day\nCheck if you agree".localized
         label.textColor = .red
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -87,7 +87,7 @@ final class TimePickerModalViewController: UIViewController {
     private let _confirmButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 0.268, green: 0.455, blue: 0.933, alpha: 0.2)
-        button.setTitle("Confirm", for: .normal)
+        button.setTitle("Confirm".localized, for: .normal)
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 8
         return button
@@ -96,7 +96,7 @@ final class TimePickerModalViewController: UIViewController {
     private let _cancelButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 0.817, green: 0.333, blue: 0.333, alpha: 0.3)
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("Cancel".localized, for: .normal)
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 8
         return button
