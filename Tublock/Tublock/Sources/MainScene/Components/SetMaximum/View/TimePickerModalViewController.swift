@@ -8,6 +8,23 @@
 import UIKit
 import SnapKit
 
+class CheckBox: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setImage(UIImage(named: "uncheck"), for: .normal)
+        self.setImage(UIImage(named: "check"), for: .selected)
+        self.addTarget(self, action: #selector(buttonCliked), for: .touchUpInside)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func buttonCliked(_ sender: UIButton) {
+        self.isSelected.toggle()
+    }
+}
+
 final class TimePickerModalViewController: UIViewController {
     
     // MARK: - Properties
@@ -30,6 +47,39 @@ final class TimePickerModalViewController: UIViewController {
         label.text = "min"
         label.textColor = .white
         return label
+    }()
+    
+    private let _cautionsView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    private let _discriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Set a maximum daily watch time for YouTube"
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let _cautionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "If you confirm, you won't be able to change it until the next day\nCheck if you agree"
+        label.textColor = .red
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let _checkBox: CheckBox = {
+        let button = CheckBox()
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 6
+        return button
     }()
     
     var selectedTime: BlockTime = (0, 0)
@@ -64,12 +114,16 @@ extension TimePickerModalViewController {
         view.addSubview(_timePickerView)
         view.addSubview(_hoursLabel)
         view.addSubview(_minutesLabel)
+        view.addSubview(_cautionsView)
+        _cautionsView.addSubview(_discriptionLabel)
+        _cautionsView.addSubview(_cautionLabel)
+        _cautionsView.addSubview(_checkBox)
     }
     
     private func _setConstraints() {
         
         _timePickerView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(140)
+            make.top.equalToSuperview().inset(100)
             make.left.equalToSuperview().inset(40)
             make.right.equalToSuperview().inset(70)
             make.height.equalTo(200)
@@ -85,6 +139,30 @@ extension TimePickerModalViewController {
             make.right.equalTo(_timePickerView).inset(20)
             make.centerY.centerY.equalTo(_timePickerView)
             make.height.equalTo(20)
+        }
+        
+        _cautionsView.snp.makeConstraints { make in
+            make.top.equalTo(_timePickerView.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(200)
+        }
+        
+        _discriptionLabel.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(60)
+        }
+        
+        _checkBox.snp.makeConstraints { make in
+            make.top.equalTo(_discriptionLabel.snp.bottom).offset(40)
+            make.left.equalToSuperview().inset(20)
+            make.height.width.equalTo(28)
+        }
+        
+        _cautionLabel.snp.makeConstraints { make in
+            make.top.equalTo(_discriptionLabel.snp.bottom).offset(20)
+            make.left.equalTo(_checkBox.snp.right).offset(20)
+            make.right.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
     
