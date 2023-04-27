@@ -110,7 +110,7 @@ extension SetMaximumView {
     /// TimePickerModalView를 Present
     @objc private func _showTimePickerModalView() {
         let timePicker = TimePickerModalViewController()
-        timePicker.modalPresentationStyle = .overCurrentContext
+        timePicker.modalPresentationStyle = .automatic
         
         /// TimePicker를 표시할 뷰 컨트롤러 찾기
         guard let viewController = _findViewController() else { return }
