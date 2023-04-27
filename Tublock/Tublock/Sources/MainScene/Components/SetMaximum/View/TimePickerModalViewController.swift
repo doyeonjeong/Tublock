@@ -28,6 +28,8 @@ class CheckBox: UIButton {
 final class TimePickerModalViewController: UIViewController {
     
     // MARK: - Properties
+    var selectedTime: BlockTime = (0, 0)
+    
     private let _timePickerView: UIPickerView = {
         let picker = UIPickerView()
         picker.backgroundColor = .clear
@@ -78,11 +80,27 @@ final class TimePickerModalViewController: UIViewController {
     private let _checkBox: CheckBox = {
         let button = CheckBox()
         button.backgroundColor = .white
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = 8
         return button
     }()
     
-    var selectedTime: BlockTime = (0, 0)
+    private let _confirmButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(red: 0.268, green: 0.455, blue: 0.933, alpha: 0.2)
+        button.setTitle("Confirm", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
+    private let _cancelButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(red: 0.817, green: 0.333, blue: 0.333, alpha: 0.3)
+        button.setTitle("Cancel", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.layer.cornerRadius = 8
+        return button
+    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -118,6 +136,8 @@ extension TimePickerModalViewController {
         _cautionsView.addSubview(_discriptionLabel)
         _cautionsView.addSubview(_cautionLabel)
         _cautionsView.addSubview(_checkBox)
+        view.addSubview(_confirmButton)
+        view.addSubview(_cancelButton)
     }
     
     private func _setConstraints() {
@@ -164,6 +184,18 @@ extension TimePickerModalViewController {
             make.right.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(20)
         }
+        
+        _cancelButton.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview().inset(32)
+            make.height.equalTo(36)
+        }
+        
+        _confirmButton.snp.makeConstraints { make in
+            make.bottom.equalTo(_cancelButton.snp.top).offset(-20)
+            make.left.right.equalToSuperview().inset(32)
+            make.height.equalTo(36)
+        }
+        
     }
     
     private func _addSwipeDownGesture() {
@@ -174,7 +206,7 @@ extension TimePickerModalViewController {
     }
     
     private func _setBackground() {
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 0.10, green: 0.10, blue: 0.10, alpha: 1.00)
     }
 
 }
