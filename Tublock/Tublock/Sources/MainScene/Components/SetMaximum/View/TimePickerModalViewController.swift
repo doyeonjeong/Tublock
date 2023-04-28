@@ -8,22 +8,7 @@
 import UIKit
 import SnapKit
 
-class CheckBox: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setImage(UIImage(named: "uncheck"), for: .normal)
-        self.setImage(UIImage(named: "check"), for: .selected)
-        self.addTarget(self, action: #selector(buttonCliked), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func buttonCliked(_ sender: UIButton) {
-        self.isSelected.toggle()
-    }
-}
+
 
 final class TimePickerModalViewController: UIViewController {
     
@@ -77,10 +62,11 @@ final class TimePickerModalViewController: UIViewController {
         return label
     }()
     
-    private let _checkBox: CheckBox = {
+    private lazy var _checkBox: CheckBox = {
         let button = CheckBox()
         button.backgroundColor = .white
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(_checkBoxCliked), for: .touchUpInside)
         return button
     }()
     
@@ -90,6 +76,7 @@ final class TimePickerModalViewController: UIViewController {
         button.setTitle("Confirm".localized, for: .normal)
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 8
+        button.isHidden = true
         return button
     }()
     
@@ -217,6 +204,11 @@ extension TimePickerModalViewController {
     @objc private func _dismissView() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc func _checkBoxCliked(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        sender.isSelected == true ? (_confirmButton.isHidden = false) : (_confirmButton.isHidden = true)
+    }
 }
 
 // MARK: - UIPickerViewDelegate, UIPickerViewDataSource
@@ -253,5 +245,18 @@ extension TimePickerModalViewController: UIPickerViewDelegate, UIPickerViewDataS
         default:
             break
         }
+    }
+}
+
+// MARK: - Custom Button: CheckBox
+fileprivate class CheckBox: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setImage(UIImage(named: "uncheck"), for: .normal)
+        self.setImage(UIImage(named: "check"), for: .selected)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
