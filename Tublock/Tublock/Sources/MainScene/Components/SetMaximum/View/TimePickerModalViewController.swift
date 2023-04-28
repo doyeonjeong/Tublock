@@ -80,12 +80,13 @@ final class TimePickerModalViewController: UIViewController {
         return button
     }()
     
-    private let _cancelButton: UIButton = {
+    private lazy var _cancelButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 0.817, green: 0.333, blue: 0.333, alpha: 0.3)
         button.setTitle("Cancel".localized, for: .normal)
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(_dismissView), for: .touchUpInside)
         return button
     }()
     
@@ -205,7 +206,7 @@ extension TimePickerModalViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func _checkBoxCliked(_ sender: UIButton) {
+    @objc private func _checkBoxCliked(_ sender: UIButton) {
         sender.isSelected.toggle()
         sender.isSelected == true ? (_confirmButton.isHidden = false) : (_confirmButton.isHidden = true)
     }
