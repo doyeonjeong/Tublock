@@ -29,4 +29,10 @@
 " hours " = " 시간 ";
 " min" = " 분";
 
+// MARK: - TimePickerModalView.swift
+"⚠️ Check carefully" = "⚠️ 신중하게 확인하세요!";
+"You can't change the maximum watch time in a single day" = "하루동안 최대 시청 시간 변경이 불가능합니다";
+"Wait" = "잠시만요😅";
+"Confirm" = "확인했어요";
+
 /* -------------------------------------------------------------------------------------- kangddong - */
