@@ -15,12 +15,12 @@ protocol MessageTextViewAction: AnyObject {
 
 protocol SetMessageViewAvailable: UIView {
     var previewAction: ((BannerView)->())? { get set }
-    var delegate: MessageTextViewAction? { get }
+    var delegate: MessageTextViewAction? { get set }
 }
 
 final class SetMessageView: UIView, SetMessageViewAvailable {
 
-    private let _placholderString: String = "Leave a message for your self here ..."
+    static let placholderString: String = "Leave a message for your self here ...".localized
     
     private let _contentsView: UIView = {
         let view = UIView()
@@ -34,7 +34,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
     private let _setMesaageLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "Set Message"
+        label.text = "Set Message".localized
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = UIColor(displayP3Red: 217/255,
                                   green: 217/255,
@@ -79,9 +79,10 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
         let textView = UITextView()
         
         textView.delegate = self
-        textView.text = _placholderString
+        textView.text = UserDefaultsManager.message
         textView.font = UIFont.systemFont(ofSize: 14)
-        textView.textColor = .gray
+        let textColor: UIColor = textView.text == SetMessageView.placholderString ? .gray : .white
+        textView.textColor = textColor
         textView.backgroundColor = .clear
         
         return textView
@@ -91,7 +92,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
         let button = UIButton()
         
         button.layer.cornerRadius = 8
-        button.setTitle("Preview", for: .normal)
+        button.setTitle("Preview".localized, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(displayP3Red: 104/255,
                                          green: 104/255,
@@ -188,13 +189,13 @@ extension SetMessageView: UITextViewDelegate {
         toolBar.tintColor = .black
         
         let doneButton = UIBarButtonItem(
-            title: "확인",
+            title: "Confirm".localized,
             style: UIBarButtonItem.Style.done,
             target: self,
             action: #selector(self.donePressed)
         )
         let cancelButton = UIBarButtonItem(
-            title: "취소",
+            title: "Cancel".localized,
             style: UIBarButtonItem.Style.plain,
             target: self,
             action: #selector(self.cancelPressed)
@@ -216,7 +217,11 @@ extension SetMessageView: UITextViewDelegate {
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        if textView.text == _placholderString {
+        if textView.text == UserDefaultsManager.message {
+            textView.textColor = .white
+        }
+        
+        if textView.text == SetMessageView.placholderString {
             textView.text = ""
             textView.textColor = .white
         }
@@ -226,32 +231,31 @@ extension SetMessageView: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
        
-        let limit = 50
+        let limit = 85
         
-        guard let str = textView.text,
-              str.count < limit
-        else {
+        let newText = textView.text.trimmingCharacters(in: .whitespaces)
+        guard newText.count < limit else {
             // 입력시 1 지울시 0
             if text.count == 0 {
                 return true
             } else {
                 delegate?.limitCount()
                 return false
-                
             }
         }
 
-        let newLength = str.count + text.count - range.length
+        let newLength = newText.count + text.count - range.length
         
         return newLength <= limit
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.count == 0 && textView.text != _placholderString {
-            textView.text = _placholderString
+        if textView.text.count == 0 && textView.text != SetMessageView.placholderString {
+            textView.text = SetMessageView.placholderString
             textView.textColor = .gray
         } else {
-            delegate?.didEndEditing(text: textView.text)
+            let newText = textView.text.trimmingCharacters(in: .whitespaces)
+            delegate?.didEndEditing(text: newText)
         }
     }
     

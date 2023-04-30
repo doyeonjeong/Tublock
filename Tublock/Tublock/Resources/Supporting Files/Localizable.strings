@@ -5,3 +5,29 @@
   Created by 강동영 on 2023/04/07.
   
 */
+
+/* -------------------------------------------------------------------------------------- doyeonjeong */
+
+// MARK: - TimePickerModalView.swift
+"If you confirm, you won't be able to change it until the next day\nCheck if you agree" = "확정하면 다음날까지 바꿀 수 없습니다\n동의하는 경우 체크하세요";
+"Set a maximum daily watch time for YouTube" = "YouTube의 하루 최대 시청 시간을 설정하세요";
+"Confirm" = "확정하기";
+"Cancel" = "돌아가기";
+"hours" = "시간";
+"min" = "분";
+
+//  MARK: - SetMaximumView.swift
+"Set Maximum" = "최대 시청 시간";
+"We recommend\nless than 3 hours." = "3시간 이내를 권장합니다";
+
+// MARK: - SetMessageView.swift
+"Set Message" = "메세지 설정하기";
+"Leave a message for your self here ..." = "미래의 자신에게 메세지를 전하세요";
+"Preview" = "미리보기";
+
+// MARK: - SetMaximumViewModel.swift
+" hours " = " 시간 ";
+" min" = " 분";
+
+/* -------------------------------------------------------------------------------------- kangddong - */
+"Please fill it out within 85 characters" = "85자 이내로 작성해주세요";
