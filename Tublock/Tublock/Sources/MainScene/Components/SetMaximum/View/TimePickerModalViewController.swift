@@ -8,22 +8,7 @@
 import UIKit
 import SnapKit
 
-class CheckBox: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setImage(UIImage(named: "uncheck"), for: .normal)
-        self.setImage(UIImage(named: "check"), for: .selected)
-        self.addTarget(self, action: #selector(buttonCliked), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func buttonCliked(_ sender: UIButton) {
-        self.isSelected.toggle()
-    }
-}
+
 
 final class TimePickerModalViewController: UIViewController {
     
@@ -77,28 +62,32 @@ final class TimePickerModalViewController: UIViewController {
         return label
     }()
     
-    private let _checkBox: CheckBox = {
+    private lazy var _checkBox: CheckBox = {
         let button = CheckBox()
         button.backgroundColor = .white
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(_checkBoxCliked), for: .touchUpInside)
         return button
     }()
     
-    private let _confirmButton: UIButton = {
+    private lazy var _confirmButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 0.268, green: 0.455, blue: 0.933, alpha: 0.2)
         button.setTitle("Confirm".localized, for: .normal)
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 8
+        button.isHidden = true
+        button.addTarget(self, action: #selector(_showAlert), for: .touchUpInside)
         return button
     }()
     
-    private let _cancelButton: UIButton = {
+    private lazy var _cancelButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 0.817, green: 0.333, blue: 0.333, alpha: 0.3)
         button.setTitle("Cancel".localized, for: .normal)
         button.titleLabel?.textColor = .white
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(_dismissView), for: .touchUpInside)
         return button
     }()
     
@@ -217,6 +206,28 @@ extension TimePickerModalViewController {
     @objc private func _dismissView() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc private func _checkBoxCliked(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        sender.isSelected == true ? (_confirmButton.isHidden = false) : (_confirmButton.isHidden = true)
+    }
+    
+    @objc private func _showAlert() {
+        let title = "⚠️ Check carefully".localized
+        let message = "You can't change the maximum watch time in a single day".localized
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Wait".localized, style: .default)
+        let okAction = UIAlertAction(title: "Confirm".localized, style: .destructive) { [weak self] _ in
+            // TODO: UserDefaultsManager 에 selectedTime 저장하는 로직
+            //UserDefaultsManager.time = (self?.selectedTime) ?? (0, 0) -> 불가능
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true)
+    }
 }
 
 // MARK: - UIPickerViewDelegate, UIPickerViewDataSource
@@ -253,5 +264,18 @@ extension TimePickerModalViewController: UIPickerViewDelegate, UIPickerViewDataS
         default:
             break
         }
+    }
+}
+
+// MARK: - Custom Button: CheckBox
+fileprivate class CheckBox: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setImage(UIImage(named: "uncheck"), for: .normal)
+        self.setImage(UIImage(named: "check"), for: .selected)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
