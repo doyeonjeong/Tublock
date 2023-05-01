@@ -62,8 +62,8 @@ final class TimePickerModalViewController: UIViewController {
         return label
     }()
     
-    private lazy var _checkBox: CheckBox = {
-        let button = CheckBox()
+    private lazy var _checkBox: CheckBoxButton = {
+        let button = CheckBoxButton()
         button.backgroundColor = .white
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(_checkBoxCliked), for: .touchUpInside)
@@ -268,7 +268,7 @@ extension TimePickerModalViewController: UIPickerViewDelegate, UIPickerViewDataS
 }
 
 // MARK: - Custom Button: CheckBox
-fileprivate class CheckBox: UIButton {
+fileprivate class CheckBoxButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setImage(UIImage(named: "uncheck"), for: .normal)
