@@ -40,7 +40,7 @@ class SetMaximumView: UIView {
         let button = UIButton()
         button.layer.cornerRadius = 14
         button.backgroundColor = .white
-        button.setAttributedTitle(viewModel.getFormattedTime(), for: .normal)
+        button.setAttributedTitle(getFormattedTime(viewModel), for: .normal)
         button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
         return button
     }()
@@ -101,6 +101,41 @@ extension SetMaximumView {
             make.left.right.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(10)
         }
+    }
+}
+
+// MARK: - Time Formatting
+extension SetMaximumView {
+    
+    /// 포맷된 시간을 나타내는 `NSAttributedString` 반환
+    func getFormattedTime(_ viewModel: SetMaximumViewModel) -> NSAttributedString {
+        let hoursText = NSAttributedString(
+            string: "\(viewModel.selectedTime.hours)",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+        )
+        
+        let minutesText = NSAttributedString(
+            string: "\(viewModel.selectedTime.minutes)",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+        )
+        
+        let hoursLabel = NSAttributedString(
+            string: " hours ".localized,
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        )
+        
+        let minLabel = NSAttributedString(
+            string: " min".localized,
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        )
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(hoursText)
+        attributedText.append(hoursLabel)
+        attributedText.append(minutesText)
+        attributedText.append(minLabel)
+        
+        return attributedText
     }
 }
 
