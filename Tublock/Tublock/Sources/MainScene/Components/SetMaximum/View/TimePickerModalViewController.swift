@@ -31,7 +31,7 @@ final class TimePickerModalViewController: UIViewController {
     
     private let _minutesLabel: UILabel = {
         let label = UILabel()
-        label.text = "min".localized
+        label.text = "minutes".localized
         label.textColor = .white
         return label
     }()
