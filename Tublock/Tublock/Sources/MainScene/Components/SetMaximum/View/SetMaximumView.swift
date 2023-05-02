@@ -19,7 +19,7 @@ class SetMaximumView: UIView {
     
     private let _titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Set Maximum"
+        label.text = "Set Maximum".localized
         label.font = .boldSystemFont(ofSize: 18)
         label.textColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
         label.sizeToFit()
@@ -29,7 +29,7 @@ class SetMaximumView: UIView {
     private let _descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.text = "We recommend\nless than 3 hours."
+        label.text = "We recommend\nless than 3 hours.".localized
         label.font = .systemFont(ofSize: 14)
         label.textColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
         label.sizeToFit()
@@ -40,7 +40,7 @@ class SetMaximumView: UIView {
         let button = UIButton()
         button.layer.cornerRadius = 14
         button.backgroundColor = .white
-        button.setAttributedTitle(viewModel.getFormattedTime(), for: .normal)
+        button.setAttributedTitle(getFormattedTime(viewModel), for: .normal)
         button.addTarget(self, action: #selector(_showTimePickerModalView), for: .touchUpInside)
         return button
     }()
@@ -104,13 +104,48 @@ extension SetMaximumView {
     }
 }
 
+// MARK: - Time Formatting
+extension SetMaximumView {
+    
+    /// 포맷된 시간을 나타내는 `NSAttributedString` 반환
+    func getFormattedTime(_ viewModel: SetMaximumViewModel) -> NSAttributedString {
+        let hoursText = NSAttributedString(
+            string: "\(viewModel.selectedTime.hours)",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+        )
+        
+        let minutesText = NSAttributedString(
+            string: "\(viewModel.selectedTime.minutes)",
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+        )
+        
+        let hoursLabel = NSAttributedString(
+            string: " hours ".localized,
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        )
+        
+        let minLabel = NSAttributedString(
+            string: " min".localized,
+            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+        )
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(hoursText)
+        attributedText.append(hoursLabel)
+        attributedText.append(minutesText)
+        attributedText.append(minLabel)
+        
+        return attributedText
+    }
+}
+
 // MARK: - TimePickerView
 extension SetMaximumView {
     
     /// TimePickerModalView를 Present
     @objc private func _showTimePickerModalView() {
         let timePicker = TimePickerModalViewController()
-        timePicker.modalPresentationStyle = .overCurrentContext
+        timePicker.modalPresentationStyle = .pageSheet
         
         /// TimePicker를 표시할 뷰 컨트롤러 찾기
         guard let viewController = _findViewController() else { return }

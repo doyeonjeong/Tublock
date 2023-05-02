@@ -20,7 +20,7 @@ protocol SetMessageViewAvailable: UIView {
 
 final class SetMessageView: UIView, SetMessageViewAvailable {
 
-    private let _placholderString: String = "Leave a message for your self here ..."
+    private let _placholderString: String = "Leave a message for your self here ...".localized
     
     private let _contentsView: UIView = {
         let view = UIView()
@@ -34,7 +34,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
     private let _setMesaageLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "Set Message"
+        label.text = "Set Message".localized
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = UIColor(displayP3Red: 217/255,
                                   green: 217/255,
@@ -91,7 +91,7 @@ final class SetMessageView: UIView, SetMessageViewAvailable {
         let button = UIButton()
         
         button.layer.cornerRadius = 8
-        button.setTitle("Preview", for: .normal)
+        button.setTitle("Preview".localized, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(displayP3Red: 104/255,
                                          green: 104/255,
