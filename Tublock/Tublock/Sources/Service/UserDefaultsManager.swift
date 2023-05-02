@@ -27,6 +27,6 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: CommonType.MAXIMUM_TIME, defaultValue: (0,0))
     static var time: BlockTime
     
-    @UserDefaultsWrapper(key: CommonType.NOTIFICATION_CONTENTS, defaultValue: "")
+    @UserDefaultsWrapper(key: CommonType.NOTIFICATION_CONTENTS, defaultValue: SetMessageView.placholderString)
     static var message: String
 }

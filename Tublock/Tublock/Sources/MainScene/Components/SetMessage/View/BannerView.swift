@@ -14,10 +14,10 @@ final class BannerView: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 26
-        view.backgroundColor = UIColor(displayP3Red: 185/255,
-                                       green: 185/255,
-                                       blue: 185/255,
-                                       alpha: 0.4)
+        view.backgroundColor = UIColor(displayP3Red: 94/255,
+                                       green: 94/255,
+                                       blue: 94/255,
+                                       alpha: 1.0)
         return view
     }()
     
@@ -67,6 +67,50 @@ final class BannerView: UIView {
     
     public func setLabel(message: String) {
         _messagePreviewLabel.text = message
+    }
+}
+
+extension BannerView {
+    
+    private func _initLayout() {
+        
+        _addSubViews()
+        _setConstraints()
+    }
+    
+    private func _addSubViews() {
+        
+        self.addSubview(_messageView)
+        _messageView.clipsToBounds = true
+        _messageView.addSubview(_tublockLabel)
+        _messageView.addSubview(_tublockLogoImageView)
+        _messageView.addSubview(_messagePreviewLabel)
+    }
+    
+    private func _setConstraints() {
+        
+        _messageView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
+        }
+        
+        _tublockLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(8)
+            make.left.equalTo(_tublockLogoImageView.snp.right).inset(-8)
+            make.right.equalToSuperview().inset(8)
+            make.height.equalTo(34)
+        }
+        
+        _tublockLogoImageView.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(10)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(36)
+        }
+        
+        _messagePreviewLabel.snp.makeConstraints { make in
+            make.top.equalTo(_tublockLabel.snp.bottom).inset(4)
+            make.left.right.equalTo(_tublockLabel)
+            make.bottom.greaterThanOrEqualToSuperview().inset(10)
+        }
     }
 }
 
