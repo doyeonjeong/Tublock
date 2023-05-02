@@ -21,7 +21,7 @@ protocol SetMessageViewAvailable: UIView {
 final class SetMessageView: UIView, SetMessageViewAvailable {
 
     static let placholderString: String = "Leave a message for your self here ...".localized
-    
+
     private let _contentsView: UIView = {
         let view = UIView()
         

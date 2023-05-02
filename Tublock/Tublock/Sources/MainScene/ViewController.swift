@@ -23,7 +23,6 @@ final class ViewController: UIViewController {
     
     private let _setMaximumView: SetMaximumView = {
         let view = SetMaximumView()
-        //view.backgroundColor = .cyan // 범위 확인용
         return view
     }()
     

@@ -8,15 +8,17 @@
 
 /* -------------------------------------------------------------------------------------- doyeonjeong */
 
+// MARK: - Common
+"Confirm" = "확정하기";
+
 // MARK: - TimePickerModalView.swift
 "If you confirm, you won't be able to change it until the next day\nCheck if you agree" = "확정하면 다음날까지 바꿀 수 없습니다\n동의하는 경우 체크하세요";
 "Set a maximum daily watch time for YouTube" = "YouTube의 하루 최대 시청 시간을 설정하세요";
-"Confirm" = "확정하기";
 "Cancel" = "돌아가기";
 "hours" = "시간";
-"min" = "분";
+"minutes" = "분";
 
-//  MARK: - SetMaximumView.swift
+// MARK: - SetMaximumView.swift
 "Set Maximum" = "최대 시청 시간";
 "We recommend\nless than 3 hours." = "3시간 이내를 권장합니다";
 
@@ -27,7 +29,12 @@
 
 // MARK: - SetMaximumViewModel.swift
 " hours " = " 시간 ";
-" min" = " 분";
+" minutes" = " 분";
+
+// MARK: - TimePickerModalView.swift
+"⚠️ Check carefully" = "⚠️ 신중하게 확인하세요!";
+"You can't change the maximum watch time in a single day" = "하루동안 최대 시청 시간 변경이 불가능합니다";
+"Wait" = "잠시만요😅";
 
 /* -------------------------------------------------------------------------------------- kangddong - */
 "Please fill it out within 85 characters" = "85자 이내로 작성해주세요";
