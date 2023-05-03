@@ -120,12 +120,12 @@ extension SetMaximumView {
         )
         
         let hoursLabel = NSAttributedString(
-            string: " hours ".localized,
+            string: " " + "hours".localized + " ",
             attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
         )
         
         let minLabel = NSAttributedString(
-            string: " min".localized,
+            string: " " + "min".localized,
             attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
         )
         
