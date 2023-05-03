@@ -43,9 +43,12 @@ final class ViewController: UIViewController {
         return messageView
     }()
     
+    private let _blockingManager = BlockingManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         _setup()
+        _blockingManager.requestAuthorization()
     }
 }
 
