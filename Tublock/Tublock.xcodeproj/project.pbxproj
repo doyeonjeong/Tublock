@@ -52,6 +52,7 @@
 /* Begin PBXFileReference section */
 		8F1A494329E4809F00D403B6 /* SetMaximumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMaximumViewModel.swift; sourceTree = "<group>"; };
 		8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMaximumView.swift; sourceTree = "<group>"; };
+		8F5095242A024BA80037A363 /* Tublock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tublock.entitlements; sourceTree = "<group>"; };
 		8F515E9A29C35D370079D537 /* Tublock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tublock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F515E9D29C35D370079D537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F515E9F29C35D370079D537 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		8F515E9C29C35D370079D537 /* Tublock */ = {
 			isa = PBXGroup;
 			children = (
+				8F5095242A024BA80037A363 /* Tublock.entitlements */,
 				8F03759929C40492005C0883 /* Sources */,
 				8F03759829C4048A005C0883 /* Resources */,
 				8F03759729C4047A005C0883 /* Application */,
@@ -591,6 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tublock/Tublock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62SDS28JUT;
@@ -609,7 +612,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.Tublock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeon.Tublock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -625,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tublock/Tublock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62SDS28JUT;
@@ -643,7 +647,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonjeong.Tublock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeon.Tublock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

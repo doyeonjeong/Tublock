@@ -11,5 +11,3 @@ import ManagedSettings
 final class BlockingManager {
     
 }
-
-
