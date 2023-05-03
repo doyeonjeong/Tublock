@@ -24,8 +24,30 @@ struct UserDefaultsWrapper<T> {
 }
 
 struct UserDefaultsManager {
-    @UserDefaultsWrapper(key: CommonType.MAXIMUM_TIME, defaultValue: (0,0))
-    static var time: BlockTime
+    static var time: BlockTime {
+            get {
+                let ud = UserDefaults.standard
+                let baseKey = CommonType.MAXIMUM_TIME
+                let hoursKey = baseKey + "_hours"
+                let minuteKey = baseKey + "_minute"
+                
+                guard
+                    let hours = ud.value(forKey: hoursKey) as? Int,
+                    let minute = ud.value(forKey: minuteKey) as? Int
+                else { return (0, 0)}
+                
+                return (hours, minute)
+            }
+            set {
+                let ud = UserDefaults.standard
+                let baseKey = CommonType.MAXIMUM_TIME
+                let hoursKey = baseKey + "_hours"
+                let minuteKey = baseKey + "_minute"
+                
+                ud.setValue(newValue.hours, forKey: hoursKey)
+                ud.setValue(newValue.minutes, forKey: minuteKey)
+            }
+        }
     
     @UserDefaultsWrapper(key: CommonType.NOTIFICATION_CONTENTS, defaultValue: SetMessageView.placholderString)
     static var message: String
