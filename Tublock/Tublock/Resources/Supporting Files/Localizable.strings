@@ -10,13 +10,13 @@
 
 // MARK: - Common
 "Confirm" = "확정하기";
+"hours" = "시간";
+"min" = "분";
 
 // MARK: - TimePickerModalView.swift
 "If you confirm, you won't be able to change it until the next day\nCheck if you agree" = "확정하면 다음날까지 바꿀 수 없습니다\n동의하는 경우 체크하세요";
 "Set a maximum daily watch time for YouTube" = "YouTube의 하루 최대 시청 시간을 설정하세요";
 "Cancel" = "돌아가기";
-"hours" = "시간";
-"min" = "분";
 
 // MARK: - SetMaximumView.swift
 "Set Maximum" = "최대 시청 시간";
@@ -26,10 +26,6 @@
 "Set Message" = "메세지 설정하기";
 "Leave a message for your self here ..." = "미래의 자신에게 메세지를 전하세요";
 "Preview" = "미리보기";
-
-// MARK: - SetMaximumViewModel.swift
-" hours " = " 시간 ";
-" min" = " 분";
 
 // MARK: - TimePickerModalView.swift
 "⚠️ Check carefully" = "⚠️ 신중하게 확인하세요!";
