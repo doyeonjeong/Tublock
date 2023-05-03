@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F1A494429E4809F00D403B6 /* SetMaximumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A494329E4809F00D403B6 /* SetMaximumViewModel.swift */; };
+		8F230E7029DFE6DD00CA3FCB /* SetMaximumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */; };
 		8F4CD51329DEE0C900A1DE4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4CD51229DEE0C900A1DE4A /* SnapKit */; };
 		8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515E9D29C35D370079D537 /* AppDelegate.swift */; };
 		8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515E9F29C35D370079D537 /* SceneDelegate.swift */; };
@@ -17,6 +19,17 @@
 		8F515EB829C35D390079D537 /* TublockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EB729C35D390079D537 /* TublockTests.swift */; };
 		8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC129C35D390079D537 /* TublockUITests.swift */; };
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
+		8F52907A29E536C4009EF2F1 /* TimePickerModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */; };
+		EF3A835F29FEDD87006391E2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A835E29FEDD87006391E2 /* Toast */; };
+		EF4D0C2529EC4446000307CA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4D0C2429EC4446000307CA /* NotificationManager.swift */; };
+		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
+		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
+		EF790E6529E465F500F435BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF790E6429E465F500F435BD /* ViewModel.swift */; };
+		EF790E6729E467EB00F435BD /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF790E6629E467EB00F435BD /* BannerView.swift */; };
+		EF9D9CDF29E45A2C00D22F8F /* BlockingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */; };
+		EFC1377A29EEE87500689E9D /* CommonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1377929EEE87500689E9D /* CommonType.swift */; };
+		EFC1377C29EEE88800689E9D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1377B29EEE88800689E9D /* UserDefaultsManager.swift */; };
+		EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCB304729E2A033001FC492 /* SetMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F1A494329E4809F00D403B6 /* SetMaximumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMaximumViewModel.swift; sourceTree = "<group>"; };
+		8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMaximumView.swift; sourceTree = "<group>"; };
 		8F515E9A29C35D370079D537 /* Tublock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tublock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F515E9D29C35D370079D537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F515E9F29C35D370079D537 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +65,16 @@
 		8F515EBD29C35D390079D537 /* TublockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TublockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerModalViewController.swift; sourceTree = "<group>"; };
+		EF4D0C2429EC4446000307CA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
+		EF790E6429E465F500F435BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EF790E6629E467EB00F435BD /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingManager.swift; sourceTree = "<group>"; };
+		EFC1377929EEE87500689E9D /* CommonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonType.swift; sourceTree = "<group>"; };
+		EFC1377B29EEE88800689E9D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		EFCB304729E2A033001FC492 /* SetMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3A835F29FEDD87006391E2 /* Toast in Frameworks */,
 				8F4CD51329DEE0C900A1DE4A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,10 +125,10 @@
 		8F03759929C40492005C0883 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8F0375A029C4055B005C0883 /* ViewModels */,
-				8F03759F29C4054E005C0883 /* Controllers */,
-				8F03759E29C40544005C0883 /* Models */,
-				8F03759C29C4052F005C0883 /* Views */,
+				EFC1377929EEE87500689E9D /* CommonType.swift */,
+				EF9D9CDD29E459FA00D22F8F /* Service */,
+				8FFB91DD29E0266400823E37 /* MainScene */,
+				EF50F83329DF39E300F8072B /* Ex_String.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -120,37 +146,17 @@
 			children = (
 				8F515EA929C35D390079D537 /* Assets.xcassets */,
 				8F515EAE29C35D390079D537 /* Info.plist */,
+				EF50F83129DF39CA00F8072B /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8F03759C29C4052F005C0883 /* Views */ = {
+		8F1A494229E4808D00D403B6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8F1A494329E4809F00D403B6 /* SetMaximumViewModel.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8F03759E29C40544005C0883 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		8F03759F29C4054E005C0883 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8F515EA129C35D370079D537 /* ViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8F0375A029C4055B005C0883 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8F515E9129C35D360079D537 = {
@@ -201,6 +207,70 @@
 			path = TublockUITests;
 			sourceTree = "<group>";
 		};
+		8FFB91DD29E0266400823E37 /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				8F515EA129C35D370079D537 /* ViewController.swift */,
+				EF790E6429E465F500F435BD /* ViewModel.swift */,
+				8FFB91DE29E02C6100823E37 /* Components */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		8FFB91DE29E02C6100823E37 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB91E029E02C7200823E37 /* SetMessage */,
+				8FFB91DF29E02C6900823E37 /* SetMaximum */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8FFB91DF29E02C6900823E37 /* SetMaximum */ = {
+			isa = PBXGroup;
+			children = (
+				8F1A494229E4808D00D403B6 /* ViewModel */,
+				8FFB91E229E02C8600823E37 /* View */,
+			);
+			path = SetMaximum;
+			sourceTree = "<group>";
+		};
+		8FFB91E029E02C7200823E37 /* SetMessage */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB91E129E02C7F00823E37 /* View */,
+			);
+			path = SetMessage;
+			sourceTree = "<group>";
+		};
+		8FFB91E129E02C7F00823E37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFCB304729E2A033001FC492 /* SetMessageView.swift */,
+				EF790E6629E467EB00F435BD /* BannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8FFB91E229E02C8600823E37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8F230E6F29DFE6DD00CA3FCB /* SetMaximumView.swift */,
+				8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF9D9CDD29E459FA00D22F8F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EF9D9CDE29E45A2C00D22F8F /* BlockingManager.swift */,
+				EF4D0C2429EC4446000307CA /* NotificationManager.swift */,
+				EFC1377B29EEE88800689E9D /* UserDefaultsManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +289,7 @@
 			name = Tublock;
 			packageProductDependencies = (
 				8F4CD51229DEE0C900A1DE4A /* SnapKit */,
+				EF3A835E29FEDD87006391E2 /* Toast */,
 			);
 			productName = Tublock;
 			productReference = 8F515E9A29C35D370079D537 /* Tublock.app */;
@@ -294,6 +365,7 @@
 			mainGroup = 8F515E9129C35D360079D537;
 			packageReferences = (
 				8F4CD51129DEE0C900A1DE4A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EF3A835D29FEDD87006391E2 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 8F515E9B29C35D370079D537 /* Products */;
 			projectDirPath = "";
@@ -312,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F515EAD29C35D390079D537 /* LaunchScreen.storyboard in Resources */,
+				EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */,
 				8F515EAA29C35D390079D537 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,10 +410,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F1A494429E4809F00D403B6 /* SetMaximumViewModel.swift in Sources */,
+				EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */,
+				8F52907A29E536C4009EF2F1 /* TimePickerModalViewController.swift in Sources */,
 				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
+				EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */,
+				EF4D0C2529EC4446000307CA /* NotificationManager.swift in Sources */,
 				8F515EA229C35D370079D537 /* ViewController.swift in Sources */,
+				EF9D9CDF29E45A2C00D22F8F /* BlockingManager.swift in Sources */,
+				EF790E6729E467EB00F435BD /* BannerView.swift in Sources */,
 				8F515E9E29C35D370079D537 /* AppDelegate.swift in Sources */,
+				8F230E7029DFE6DD00CA3FCB /* SetMaximumView.swift in Sources */,
+				EFC1377C29EEE88800689E9D /* UserDefaultsManager.swift in Sources */,
+				EF790E6529E465F500F435BD /* ViewModel.swift in Sources */,
 				8F515EA029C35D370079D537 /* SceneDelegate.swift in Sources */,
+				EFC1377A29EEE87500689E9D /* CommonType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +603,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,6 +637,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,6 +780,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EF3A835D29FEDD87006391E2 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -701,6 +795,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F4CD51129DEE0C900A1DE4A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EF3A835E29FEDD87006391E2 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3A835D29FEDD87006391E2 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 
