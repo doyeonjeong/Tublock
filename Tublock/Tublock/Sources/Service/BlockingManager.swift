@@ -9,6 +9,10 @@ import FamilyControls
 import DeviceActivity
 import ManagedSettings
 
+extension DeviceActivityName {
+    static let daily = Self("daily")
+}
+
 final class BlockingManager {
     
     private let _center = AuthorizationCenter.shared
