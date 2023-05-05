@@ -140,13 +140,13 @@ extension TimePickerModalViewController {
         
         _hoursLabel.snp.makeConstraints { make in
             make.left.equalTo(_timePickerView).inset(100)
-            make.centerY.centerY.equalTo(_timePickerView)
+            make.centerY.equalTo(_timePickerView)
             make.height.equalTo(20)
         }
         
         _minutesLabel.snp.makeConstraints { make in
             make.right.equalTo(_timePickerView).inset(20)
-            make.centerY.centerY.equalTo(_timePickerView)
+            make.centerY.equalTo(_timePickerView)
             make.height.equalTo(20)
         }
         
