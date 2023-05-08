@@ -15,4 +15,12 @@ final class SetMaximumViewModel {
     init(selectedTime: BlockTime = (0, 0)) {
         self.selectedTime = selectedTime
     }
+    
+    func loadTime() {
+        selectedTime = UserDefaultsManager.time
+    }
+    
+    func saveTime() {
+        UserDefaultsManager.time = selectedTime
+    }
 }

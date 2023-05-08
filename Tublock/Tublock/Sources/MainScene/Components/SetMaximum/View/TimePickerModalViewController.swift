@@ -13,7 +13,7 @@ import SnapKit
 final class TimePickerModalViewController: UIViewController {
     
     // MARK: - Properties
-    var selectedTime: BlockTime = (0, 0)
+    var viewModel = SetMaximumViewModel()
     
     private let _timePickerView: UIPickerView = {
         let picker = UIPickerView()
@@ -218,7 +218,7 @@ extension TimePickerModalViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Wait".localized, style: .default)
         let okAction = UIAlertAction(title: "Confirm".localized, style: .destructive) { [weak self] _ in
-            UserDefaultsManager.time = self?.selectedTime ?? (0, 0)
+            self?.viewModel.saveTime()
             self?.dismiss(animated: true, completion: nil)
         }
         
@@ -257,9 +257,9 @@ extension TimePickerModalViewController: UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            selectedTime.hours = row
+            viewModel.selectedTime.hours = row
         case 1:
-            selectedTime.minutes = row
+            viewModel.selectedTime.minutes = row
         default:
             break
         }
