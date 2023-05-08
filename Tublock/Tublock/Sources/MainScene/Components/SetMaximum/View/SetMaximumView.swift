@@ -109,24 +109,39 @@ extension SetMaximumView {
     
     /// 포맷된 시간을 나타내는 `NSAttributedString` 반환
     func getFormattedTime(_ viewModel: SetMaximumViewModel) -> NSAttributedString {
+        
+        let labelColor = UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00)
+        
         let hoursText = NSAttributedString(
             string: "\(viewModel.selectedTime.hours)",
-            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23),
+                NSAttributedString.Key.foregroundColor: labelColor
+            ]
         )
         
         let minutesText = NSAttributedString(
             string: "\(viewModel.selectedTime.minutes)",
-            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 23)]
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 23),
+                NSAttributedString.Key.foregroundColor: labelColor
+            ]
         )
         
         let hoursLabel = NSAttributedString(
             string: " " + "hours".localized + " ",
-            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17),
+                NSAttributedString.Key.foregroundColor: labelColor
+            ]
         )
         
         let minLabel = NSAttributedString(
             string: " " + "min".localized,
-            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)]
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17),
+                NSAttributedString.Key.foregroundColor: labelColor
+            ]
         )
         
         let attributedText = NSMutableAttributedString()
