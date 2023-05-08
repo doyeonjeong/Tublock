@@ -218,8 +218,7 @@ extension TimePickerModalViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Wait".localized, style: .default)
         let okAction = UIAlertAction(title: "Confirm".localized, style: .destructive) { [weak self] _ in
-            // TODO: UserDefaultsManager 에 selectedTime 저장하는 로직
-            //UserDefaultsManager.time = (self?.selectedTime) ?? (0, 0) -> 불가능
+            UserDefaultsManager.time = self?.selectedTime ?? (0, 0)
             self?.dismiss(animated: true, completion: nil)
         }
         
