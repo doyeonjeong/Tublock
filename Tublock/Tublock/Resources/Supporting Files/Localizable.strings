@@ -34,3 +34,7 @@
 
 /* -------------------------------------------------------------------------------------- kangddong - */
 "Please fill it out within 85 characters" = "85자 이내로 작성해주세요";
+
+// MARK: - SettingViewController.swift
+"alarm setting" = "알림 설정";
+"screenAPI setting" = "스크린 타임 권한";
