@@ -10,10 +10,15 @@ typealias BlockTime = (hours: Int, minutes: Int)
 final class SetMaximumViewModel {
     
     // MARK: - Properties
-    var selectedTime: BlockTime
+    var selectedTime: BlockTime {
+        didSet {
+            saveTime()
+        }
+    }
 
     init(selectedTime: BlockTime = (0, 0)) {
         self.selectedTime = selectedTime
+        loadTime()
     }
     
     func loadTime() {

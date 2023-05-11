@@ -13,7 +13,12 @@ import SnapKit
 final class TimePickerModalViewController: UIViewController {
     
     // MARK: - Properties
-    var viewModel = SetMaximumViewModel()
+    
+    /// SetMaximumView와 동일한 ViewModel 객체 사용
+    var viewModel: SetMaximumViewModel
+    
+    /// 사용자가 시간을 선택했을 때 실행되는 클로저
+    var onTimeSelected: ((BlockTime) -> Void)?
     
     private let _timePickerView: UIPickerView = {
         let picker = UIPickerView()
@@ -96,6 +101,16 @@ final class TimePickerModalViewController: UIViewController {
         super.viewDidLoad()
         _setupView()
     }
+    
+    /// 인스턴스 생성시 주입받은 viewModel 사용하기 위한 커스텀 이니셜라이저
+    init(viewModel: SetMaximumViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - Setup
@@ -108,6 +123,7 @@ extension TimePickerModalViewController {
         _addSubviews()
         _setConstraints()
         _addSwipeDownGesture()
+        _initPickerView()
     }
     
     private func _setDelegates() {
@@ -197,6 +213,12 @@ extension TimePickerModalViewController {
     private func _setBackground() {
         view.backgroundColor = UIColor(red: 0.10, green: 0.10, blue: 0.10, alpha: 1.00)
     }
+    
+    /// 선택하지 않은 행의 기본 값을 0으로 설정
+    private func _initPickerView() {
+        _timePickerView.selectRow(0, inComponent:0, animated: false)
+        _timePickerView.selectRow(0, inComponent:1, animated: false)
+    }
 
 }
 
@@ -219,6 +241,7 @@ extension TimePickerModalViewController {
         let cancelAction = UIAlertAction(title: "Wait".localized, style: .default)
         let okAction = UIAlertAction(title: "Confirm".localized, style: .destructive) { [weak self] _ in
             self?.viewModel.saveTime()
+            self?.onTimeSelected?(self?.viewModel.selectedTime ?? (0, 0))
             self?.dismiss(animated: true, completion: nil)
         }
         
