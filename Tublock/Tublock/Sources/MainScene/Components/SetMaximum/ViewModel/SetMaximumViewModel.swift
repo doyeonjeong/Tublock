@@ -12,14 +12,20 @@ final class SetMaximumViewModel {
     // MARK: - Properties
     var selectedTime: BlockTime {
         didSet {
-            onTimeChanged?()
+            saveTime()
         }
     }
-    
-    /// 시간이 변경될 때 호출되는 클로저
-    var onTimeChanged: (() -> Void)?
 
     init(selectedTime: BlockTime = (0, 0)) {
         self.selectedTime = selectedTime
+        loadTime()
+    }
+    
+    func loadTime() {
+        selectedTime = UserDefaultsManager.time
+    }
+    
+    func saveTime() {
+        UserDefaultsManager.time = selectedTime
     }
 }
