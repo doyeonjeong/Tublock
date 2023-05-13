@@ -49,7 +49,7 @@ final class SettingViewController: UIViewController {
         button.setImage(.init(systemName: "chevron.right"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(_moveSystemSetting), for: .touchUpInside)
+        button.addTarget(self, action: #selector(_moveAlertSetting), for: .touchUpInside)
         
         return button
     }()
@@ -123,7 +123,7 @@ extension SettingViewController {
     }
     
     @objc
-    private func _moveSystemSetting() {
+    private func _moveAlertSetting() {
         Task {
             await _openSystemSetting()
         }
@@ -132,7 +132,7 @@ extension SettingViewController {
     private func _openSystemSetting() async {
         guard
             isAlertAuthorization == true,
-              let nsUrl = UIApplication.openSettingsURLString.toURL()
+              let nsUrl = UIApplication.openNotificationSettingsURLString.toURL()
         else { return }
         let url = nsUrl as URL
         if UIApplication.shared.canOpenURL(url) {
