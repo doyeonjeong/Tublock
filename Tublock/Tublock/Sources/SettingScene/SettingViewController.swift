@@ -36,20 +36,21 @@ final class SettingViewController: UIViewController {
     
     private let _appVersionValue: UILabel = {
         let label = UILabel()
-        label.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        label.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
         label.textColor = .white
         label.backgroundColor = .clear
         return label
     }()
     
-    private let _alarmPermissionButton: UIButton = {
+    private lazy var _alarmPermissionButton: UIButton = {
         let button = UIButton()
         
         button.setTitle("alarm setting".localized, for: .normal)
         button.setImage(.init(systemName: "chevron.right"), for: .normal)
-        button.titleLabel?.textAlignment = .left
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(_moveSystemSetting), for: .touchUpInside)
+        
         return button
     }()
     
@@ -63,9 +64,12 @@ final class SettingViewController: UIViewController {
         return button
     }()
     
+    private var isAlertAuthorization: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        _getAlertAuthorization()
         _setup()
     }
 }
@@ -109,6 +113,30 @@ extension SettingViewController {
         
         _appVersionValue.snp.makeConstraints { make in
             make.right.centerY.equalTo(_appVersionView)
+        }
+    }
+    
+    private func _getAlertAuthorization() {
+        Task {
+            isAlertAuthorization = await NotificationManager.shared.isAuthorization()
+        }
+    }
+    
+    @objc
+    private func _moveSystemSetting() {
+        Task {
+            await _openSystemSetting()
+        }
+    }
+    
+    private func _openSystemSetting() async {
+        guard
+            isAlertAuthorization == true,
+              let nsUrl = UIApplication.openSettingsURLString.toURL()
+        else { return }
+        let url = nsUrl as URL
+        if UIApplication.shared.canOpenURL(url) {
+            await UIApplication.shared.open(url)
         }
     }
 }
