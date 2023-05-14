@@ -7,6 +7,7 @@
 
 import SnapKit
 import UIKit
+import SwiftUI
 
 final class ViewController: UIViewController {
     
@@ -45,6 +46,52 @@ final class ViewController: UIViewController {
     
     private let _blockingManager = BlockingManager()
     
+    // MARK: - for Blocking Properties
+    var hostingController: UIHostingController<BlockingSwiftUIView>?
+    
+    private lazy var _blockingView: UIHostingController<some View> = {
+        let model = BlockingApplicationModel.shared
+        let hostingController = UIHostingController(
+            rootView: BlockingSwiftUIView()
+                .environmentObject(model)
+        )
+        hostingController.view.backgroundColor = .clear
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        return hostingController
+    }()
+    
+    private let _blockButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("차단하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(red: 0.18, green: 0.18, blue: 0.18, alpha: 1.00)
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let _releaseButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("해제하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(red: 0.18, green: 0.18, blue: 0.18, alpha: 1.00)
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let _buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         _setup()
@@ -57,6 +104,7 @@ extension ViewController {
         _setDelegates()
         _addSubviews()
         _setConstraints()
+        _addTargets()
     }
     
     private func _setDelegates() {
@@ -68,6 +116,13 @@ extension ViewController {
         _headerView.addSubview(_settingIconImageView)
         view.addSubview(_setMaximumView)
         view.addSubview(_setMessageView)
+        
+        // MARK: - for Blocking Subviews
+        _buttonStackView.addArrangedSubview(_blockButton)
+        _buttonStackView.addArrangedSubview(_releaseButton)
+        view.addSubview(_buttonStackView)
+        addChild(_blockingView)
+        view.addSubview(_blockingView.view)
     }
     
     private func _setConstraints() {
@@ -96,6 +151,26 @@ extension ViewController {
             make.height.equalTo(271)
             make.width.equalToSuperview()
         }
+        
+        // MARK: - for Blocking Constraints
+        _blockingView.view.snp.makeConstraints { make in
+            make.top.equalTo(_setMessageView.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(32)
+        }
+        
+        _buttonStackView.snp.makeConstraints { make in
+            make.top.equalTo(_blockingView.view.snp.bottom).offset(40)
+            make.left.right.equalToSuperview().inset(40)
+            make.height.equalTo(40)
+        }
+        
+    }
+    
+    // MARK: - for Blocking Targets
+    private func _addTargets() {
+        _blockButton.addTarget(self, action: #selector(_tappedBlockButton), for: .touchUpInside)
+        _releaseButton.addTarget(self, action: #selector(_tappedReleaseButton), for: .touchUpInside)
     }
 }
 
@@ -141,5 +216,31 @@ extension ViewController {
             preview.removeFromSuperview()
             self.isPreviewing = false
         }
+    }
+    
+    // MARK: - for Blocking Actions
+    @objc private func _tappedBlockButton() {
+        _blockingManager.block { result in
+            switch result {
+            case .success():
+                print("차단 성공")
+                self._showAlert(with: "차단 성공", message: "선택된 앱을 제한했습니다.")
+            case .failure(let error):
+                print("차단 실패: \(error.localizedDescription)")
+                self._showAlert(with: "차단 실패", message: "선택된 앱을 제한하는데에 실패했습니다.")
+            }
+        }
+    }
+    
+    @objc private func _tappedReleaseButton() {
+        print("차단 해제")
+        _blockingManager.unblockAllApps()
+        self._showAlert(with: "차단 해제", message: "차단을 해제했습니다.")
+    }
+    
+    private func _showAlert(with title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true)
     }
 }

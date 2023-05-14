@@ -20,6 +20,7 @@
 		8F515EC229C35D390079D537 /* TublockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC129C35D390079D537 /* TublockUITests.swift */; };
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
 		8F52907A29E536C4009EF2F1 /* TimePickerModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */; };
+		8F828B592A10B9CA008B16BC /* BlockingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F828B582A10B9CA008B16BC /* BlockingSwiftUIView.swift */; };
 		EF3A835F29FEDD87006391E2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A835E29FEDD87006391E2 /* Toast */; };
 		EF4D0C2529EC4446000307CA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4D0C2429EC4446000307CA /* NotificationManager.swift */; };
 		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
@@ -67,6 +68,7 @@
 		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerModalViewController.swift; sourceTree = "<group>"; };
+		8F828B582A10B9CA008B16BC /* BlockingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingSwiftUIView.swift; sourceTree = "<group>"; };
 		EF4D0C2429EC4446000307CA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 			path = TublockUITests;
 			sourceTree = "<group>";
 		};
+		8F828B572A10B977008B16BC /* Blocking */ = {
+			isa = PBXGroup;
+			children = (
+				8F828B582A10B9CA008B16BC /* BlockingSwiftUIView.swift */,
+			);
+			path = Blocking;
+			sourceTree = "<group>";
+		};
 		8FFB91DD29E0266400823E37 /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 		8FFB91DE29E02C6100823E37 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8F828B572A10B977008B16BC /* Blocking */,
 				8FFB91E029E02C7200823E37 /* SetMessage */,
 				8FFB91DF29E02C6900823E37 /* SetMaximum */,
 			);
@@ -413,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1A494429E4809F00D403B6 /* SetMaximumViewModel.swift in Sources */,
+				8F828B592A10B9CA008B16BC /* BlockingSwiftUIView.swift in Sources */,
 				EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */,
 				8F52907A29E536C4009EF2F1 /* TimePickerModalViewController.swift in Sources */,
 				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
