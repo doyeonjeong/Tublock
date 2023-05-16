@@ -159,7 +159,17 @@ extension SetMaximumView {
     
     /// TimePickerModalView를 Present
     @objc private func _showTimePickerModalView() {
-        let timePicker = TimePickerModalViewController()
+        let timePicker = TimePickerModalViewController(viewModel: viewModel)
+        
+        viewModel.selectedTime = (0, 0)
+        
+        // 사용자가 시간을 선택하면 실행되는 클로저
+        timePicker.onTimeSelected = { [weak self] _ in
+            if let viewModel = self?.viewModel {
+                let formattedTime = self?.getFormattedTime(viewModel)
+                self?._timeSettingButton.setAttributedTitle(formattedTime, for: .normal)
+            }
+        }
         timePicker.modalPresentationStyle = .pageSheet
         
         /// TimePicker를 표시할 뷰 컨트롤러 찾기
