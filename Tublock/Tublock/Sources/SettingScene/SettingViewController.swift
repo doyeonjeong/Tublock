@@ -43,11 +43,16 @@ final class SettingViewController: UIViewController {
     }()
     
     private lazy var _alarmPermissionButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .custom)
         
+        var config = UIButton.Configuration.plain()
+        button.configuration = config
         button.setTitle("alarm setting".localized, for: .normal)
         button.setImage(.init(systemName: "chevron.right"), for: .normal)
+        button.tintColor = .white
         button.setTitleColor(.white, for: .normal)
+        button.contentHorizontalAlignment = .fill
+        button.semanticContentAttribute = .forceRightToLeft
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(_moveAlertSetting), for: .touchUpInside)
         
@@ -55,12 +60,18 @@ final class SettingViewController: UIViewController {
     }()
     
     private let _screentimePermissionButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .custom)
         
+        var config = UIButton.Configuration.plain()
+        button.configuration = config
         button.setTitle("screenAPI setting".localized, for: .normal)
         button.setImage(.init(systemName: "chevron.right"), for: .normal)
+        button.tintColor = .white
         button.setTitleColor(.white, for: .normal)
+        button.contentHorizontalAlignment = .fill
+        button.semanticContentAttribute = .forceRightToLeft
         button.backgroundColor = .clear
+        // TODO: ScreenTime api 권한 붙은 후에 추후 작업 예정
         return button
     }()
     
@@ -108,11 +119,13 @@ extension SettingViewController {
             make.height.equalTo(47)
         }
         _appVersionLabel.snp.makeConstraints { make in
-            make.left.centerY.equalTo(_appVersionView)
+            make.left.equalTo(_appVersionView).inset(12)
+            make.centerY.equalTo(_appVersionView)
         }
         
         _appVersionValue.snp.makeConstraints { make in
-            make.right.centerY.equalTo(_appVersionView)
+            make.right.equalTo(_appVersionView).inset(12)
+            make.centerY.equalTo(_appVersionView)
         }
     }
     
