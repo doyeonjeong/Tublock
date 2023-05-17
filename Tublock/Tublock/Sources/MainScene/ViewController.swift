@@ -10,9 +10,11 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    private let _settingIconImageView: UIImageView = {
+    private lazy var _settingIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Setting_icon")
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentSettingVC)))
         return imageView
     }()
     
@@ -93,6 +95,15 @@ extension ViewController {
             make.height.equalTo(271)
             make.width.equalToSuperview()
         }
+    }
+    
+    @objc
+    private func presentSettingVC() {
+        print(#function)
+        let settingVC = SettingViewController()
+        settingVC.modalPresentationStyle = .pageSheet
+        
+        self.present(settingVC, animated: true)
     }
 }
 

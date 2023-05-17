@@ -21,6 +21,7 @@
 		8F515EC429C35D390079D537 /* TublockUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */; };
 		8F52907A29E536C4009EF2F1 /* TimePickerModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */; };
 		EF3A835F29FEDD87006391E2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF3A835E29FEDD87006391E2 /* Toast */; };
+		EF44B8192A0A9F8200FD2576 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF44B8182A0A9F8200FD2576 /* SettingViewController.swift */; };
 		EF4D0C2529EC4446000307CA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4D0C2429EC4446000307CA /* NotificationManager.swift */; };
 		EF50F83229DF39CA00F8072B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF50F83129DF39CA00F8072B /* Localizable.strings */; };
 		EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50F83329DF39E300F8072B /* Ex_String.swift */; };
@@ -66,6 +67,7 @@
 		8F515EC129C35D390079D537 /* TublockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITests.swift; sourceTree = "<group>"; };
 		8F515EC329C35D390079D537 /* TublockUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TublockUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerModalViewController.swift; sourceTree = "<group>"; };
+		EF44B8182A0A9F8200FD2576 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		EF4D0C2429EC4446000307CA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EF50F83129DF39CA00F8072B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EF50F83329DF39E300F8072B /* Ex_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_String.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				EFC1377929EEE87500689E9D /* CommonType.swift */,
 				EF9D9CDD29E459FA00D22F8F /* Service */,
 				8FFB91DD29E0266400823E37 /* MainScene */,
+				EF44B8172A0A9F6000FD2576 /* SettingScene */,
 				EF50F83329DF39E300F8072B /* Ex_String.swift */,
 			);
 			path = Sources;
@@ -259,6 +262,14 @@
 				8F52907929E536C4009EF2F1 /* TimePickerModalViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EF44B8172A0A9F6000FD2576 /* SettingScene */ = {
+			isa = PBXGroup;
+			children = (
+				EF44B8182A0A9F8200FD2576 /* SettingViewController.swift */,
+			);
+			path = SettingScene;
 			sourceTree = "<group>";
 		};
 		EF9D9CDD29E459FA00D22F8F /* Service */ = {
@@ -413,6 +424,7 @@
 				8F1A494429E4809F00D403B6 /* SetMaximumViewModel.swift in Sources */,
 				EF50F83429DF39E300F8072B /* Ex_String.swift in Sources */,
 				8F52907A29E536C4009EF2F1 /* TimePickerModalViewController.swift in Sources */,
+				EF44B8192A0A9F8200FD2576 /* SettingViewController.swift in Sources */,
 				8F515EA829C35D370079D537 /* Tublock.xcdatamodeld in Sources */,
 				EFCB304829E2A033001FC492 /* SetMessageView.swift in Sources */,
 				EF4D0C2529EC4446000307CA /* NotificationManager.swift in Sources */,
