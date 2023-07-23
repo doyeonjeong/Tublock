@@ -127,11 +127,8 @@
 		8F03759929C40492005C0883 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				EFC1377929EEE87500689E9D /* CommonType.swift */,
-				EF9D9CDD29E459FA00D22F8F /* Service */,
-				8FFB91DD29E0266400823E37 /* MainScene */,
-				EF44B8172A0A9F6000FD2576 /* SettingScene */,
-				EF50F83329DF39E300F8072B /* Ex_String.swift */,
+				8F10560D2A6CFB6C005B86C6 /* Extensions */,
+				8F10560C2A6CFB16005B86C6 /* Legacy */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -152,6 +149,25 @@
 				EF50F83129DF39CA00F8072B /* Localizable.strings */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F10560C2A6CFB16005B86C6 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				EF44B8172A0A9F6000FD2576 /* SettingScene */,
+				EFC1377929EEE87500689E9D /* CommonType.swift */,
+				EF9D9CDD29E459FA00D22F8F /* Service */,
+				8FFB91DD29E0266400823E37 /* MainScene */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		8F10560D2A6CFB6C005B86C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF50F83329DF39E300F8072B /* Ex_String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8F1A494229E4808D00D403B6 /* ViewModel */ = {
