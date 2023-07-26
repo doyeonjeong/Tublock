@@ -15,8 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
-        window?.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.00)
+        window?.rootViewController = MainViewController()
+        
+        let gradientView = UIView(frame: windowScene.coordinateSpace.bounds)
+        gradientView.applyGradient(colos: [
+            UIColor(red: 0.99, green: 0.65, blue: 0.04, alpha: 1.00).cgColor,
+            UIColor(red: 0.85, green: 0.11, blue: 0.07, alpha: 1.00).cgColor
+        ])
+        window?.insertSubview(gradientView, at: 0)
         window?.makeKeyAndVisible()
     }
 
@@ -42,3 +48,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UIView {
+    func applyGradient(colos: [CGColor]) {
+        let gradient = CAGradientLayer()
+        gradient.colors = colos
+        gradient.frame = bounds
+        layer.insertSublayer(gradient, at: 0)
+    }
+}

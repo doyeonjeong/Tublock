@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,28 +16,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_clean" translatesAutoresizingMaskIntoConstraints="NO" id="is0-1j-uEc">
-                                <rect key="frame" x="96.666666666666686" y="326" width="200" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ynj-A2-QSC">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_triangle" translatesAutoresizingMaskIntoConstraints="NO" id="0mu-qp-lBa">
+                                <rect key="frame" x="146.66666666666666" y="376" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Oki-J7-Y94"/>
-                                    <constraint firstAttribute="width" constant="200" id="qjr-oc-xBE"/>
+                                    <constraint firstAttribute="width" secondItem="0mu-qp-lBa" secondAttribute="height" id="brD-cf-G3P"/>
+                                    <constraint firstAttribute="width" constant="100" id="nyF-lq-2h5"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="byN-Qi-zCe">
+                                <rect key="frame" x="112.66666666666669" y="506" width="168" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="bKz-hH-hhS"/>
+                                    <constraint firstAttribute="width" secondItem="byN-Qi-zCe" secondAttribute="height" multiplier="6" id="vvK-9L-5Vi"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="is0-1j-uEc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="UZE-KM-Ndb"/>
-                            <constraint firstItem="is0-1j-uEc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Z3A-Zs-DUZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ynj-A2-QSC" secondAttribute="trailing" id="032-vz-lOr"/>
+                            <constraint firstItem="byN-Qi-zCe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2Ri-NZ-mk4"/>
+                            <constraint firstItem="ynj-A2-QSC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6rh-QR-1y3"/>
+                            <constraint firstItem="ynj-A2-QSC" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="BvU-6b-KFL"/>
+                            <constraint firstItem="byN-Qi-zCe" firstAttribute="top" secondItem="0mu-qp-lBa" secondAttribute="bottom" constant="30" id="F84-rn-jmi"/>
+                            <constraint firstItem="0mu-qp-lBa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PH5-dD-Ro5"/>
+                            <constraint firstAttribute="bottom" secondItem="ynj-A2-QSC" secondAttribute="bottom" id="b2Z-vu-4mm"/>
+                            <constraint firstItem="0mu-qp-lBa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kVq-Ij-PLW"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo_clean" width="112" height="112"/>
+        <image name="background" width="393" height="852"/>
+        <image name="logo_text" width="598" height="164"/>
+        <image name="logo_triangle" width="500" height="500.33334350585938"/>
     </resources>
 </document>
